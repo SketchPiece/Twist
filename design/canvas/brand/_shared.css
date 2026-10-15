@@ -1,0 +1,55 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; -webkit-font-smoothing: antialiased; }
+body { font-family: "Inter Tight", -apple-system, system-ui, sans-serif; }
+
+/* phone */
+.phone { position: relative; width: 390px; height: 844px; overflow: hidden; }
+.status { position: absolute; top: 0; left: 0; right: 0; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 6px 30px 0 44px; font: 600 17px -apple-system, system-ui, sans-serif; z-index: 2; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.home { position: absolute; bottom: 8px; left: 50%; width: 134px; height: 5px; margin-left: -67px; border-radius: 3px; opacity: .85; }
+
+.col { position: absolute; inset: 54px 0 34px; display: flex; flex-direction: column; align-items: center; padding: 18px 28px 22px; }
+.top { height: 44px; display: flex; align-items: center; justify-content: center; }
+.obj { flex: 1; display: flex; align-items: center; justify-content: center; }
+.readout { display: flex; flex-direction: column; align-items: center; gap: 12px; min-height: 120px; }
+.cta { margin-top: 18px; width: 100%; height: 58px; border-radius: 29px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 18px; }
+.quiet { margin-top: 18px; height: 58px; display: flex; align-items: center; font-weight: 500; font-size: 16px; opacity: .45; }
+.hold { margin-top: 8px; position: relative; width: 128px; height: 128px; }
+.hold-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+
+/* system shield: system font only, fixed layout */
+.shield { position: relative; width: 390px; height: 844px; font-family: -apple-system, "SF Pro Text", system-ui, sans-serif; }
+.shield-mid { position: absolute; top: 250px; left: 32px; right: 32px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.shield-icon { margin-bottom: 22px; }
+.shield-title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; }
+.shield-sub { font-size: 17px; margin-top: 8px; line-height: 1.35; }
+.shield-btns { position: absolute; left: 24px; right: 24px; bottom: 56px; display: flex; flex-direction: column; gap: 6px; }
+.shield-primary { height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 600; }
+.shield-secondary { height: 50px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; }
+
+/* brand sheet */
+.sheet { position: absolute; inset: 0; padding: 64px 80px; }
+.sheet-tag { font: 600 15px "Inter Tight", sans-serif; letter-spacing: .14em; text-transform: uppercase; opacity: .55; margin-bottom: 40px; }
+.sheet-grid { display: grid; grid-template-columns: 1fr 340px; gap: 60px; }
+.sheet-p { font: 400 18px/1.5 "Inter Tight", sans-serif; max-width: 560px; margin-top: 20px; opacity: .8; }
+.swatches { display: flex; gap: 12px; margin-top: 36px; }
+.sw { width: 132px; height: 92px; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; font: 500 13px "JetBrains Mono", monospace; }
+.sw b { font: 600 15px "Inter Tight", sans-serif; }
+.type { display: flex; gap: 48px; margin-top: 30px; align-items: flex-end; }
+.type > div { display: flex; flex-direction: column; gap: 6px; }
+.type-name { font: 500 13px "JetBrains Mono", monospace; opacity: .55; }
+.icons { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; padding-top: 8px; }
+.icons svg { filter: drop-shadow(0 10px 24px rgba(0,0,0,.18)); }
+.icons-row { display: flex; gap: 18px; align-items: flex-end; }
+
+/* onboarding board */
+.onb { position: absolute; inset: 0; display: flex; gap: 56px; align-items: center; justify-content: center; }
+.mini { border-radius: 40px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.18); flex: none; }
+.onb-col .obj { flex: 1; }
+.onb-text { width: 100%; }
+.list { flex: 1; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+.li { display: flex; justify-content: space-between; align-items: center; height: 64px; border-bottom: 1px solid var(--line); font-size: 20px; font-weight: 500; }
+.tog { width: 52px; height: 32px; border-radius: 16px; background: var(--line); position: relative; }
+.tog::after { content: ""; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; }
+.tog.on { background: var(--on); }
+.tog.on::after { left: 23px; }

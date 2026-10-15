@@ -1,0 +1,237 @@
+{
+ "v": 3,
+ "title": "Twist · brand directions",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "a1-brand.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1280,
+   "h": 800,
+   "title": "A · Yolk — brand"
+  },
+  "a2-idle.html": {
+   "x": 1360,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A · Main, before twisting"
+  },
+  "a3-twisting.html": {
+   "x": 1810,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A · Main, while twisting"
+  },
+  "a4-locked.html": {
+   "x": 2260,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A · Locked"
+  },
+  "a5-shield.html": {
+   "x": 2710,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A · Shield (system screen)"
+  },
+  "a6-unwind.html": {
+   "x": 3160,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A · Emergency unwind"
+  },
+  "a7-onboarding.html": {
+   "x": 3640,
+   "y": 0,
+   "w": 1280,
+   "h": 800,
+   "title": "A · Onboarding"
+  },
+  "b1-brand.html": {
+   "x": 0,
+   "y": 1240,
+   "w": 1280,
+   "h": 800,
+   "title": "B · Dial — brand"
+  },
+  "b2-idle.html": {
+   "x": 1360,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "B · Main, before twisting"
+  },
+  "b3-twisting.html": {
+   "x": 1810,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "B · Main, while twisting"
+  },
+  "b4-locked.html": {
+   "x": 2260,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "B · Locked"
+  },
+  "b5-shield.html": {
+   "x": 2710,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "B · Shield (system screen)"
+  },
+  "b6-unwind.html": {
+   "x": 3160,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "B · Emergency unwind"
+  },
+  "b7-onboarding.html": {
+   "x": 3640,
+   "y": 1240,
+   "w": 1280,
+   "h": 800,
+   "title": "B · Onboarding"
+  },
+  "c1-brand.html": {
+   "x": 0,
+   "y": 2480,
+   "w": 1280,
+   "h": 800,
+   "title": "C · Vault — brand"
+  },
+  "c2-idle.html": {
+   "x": 1360,
+   "y": 2480,
+   "w": 390,
+   "h": 844,
+   "title": "C · Main, before twisting"
+  },
+  "c3-twisting.html": {
+   "x": 1810,
+   "y": 2480,
+   "w": 390,
+   "h": 844,
+   "title": "C · Main, while twisting"
+  },
+  "c4-locked.html": {
+   "x": 2260,
+   "y": 2480,
+   "w": 390,
+   "h": 844,
+   "title": "C · Locked"
+  },
+  "c5-shield.html": {
+   "x": 2710,
+   "y": 2480,
+   "w": 390,
+   "h": 844,
+   "title": "C · Shield (system screen)"
+  },
+  "c6-unwind.html": {
+   "x": 3160,
+   "y": 2480,
+   "w": 390,
+   "h": 844,
+   "title": "C · Emergency unwind"
+  },
+  "c7-onboarding.html": {
+   "x": 3640,
+   "y": 2480,
+   "w": 1280,
+   "h": 800,
+   "title": "C · Onboarding"
+  }
+ },
+ "order": [
+  "a1-brand.html",
+  "a2-idle.html",
+  "a3-twisting.html",
+  "a4-locked.html",
+  "a5-shield.html",
+  "a6-unwind.html",
+  "a7-onboarding.html",
+  "b1-brand.html",
+  "b2-idle.html",
+  "b3-twisting.html",
+  "b4-locked.html",
+  "b5-shield.html",
+  "b6-unwind.html",
+  "b7-onboarding.html",
+  "c1-brand.html",
+  "c2-idle.html",
+  "c3-twisting.html",
+  "c4-locked.html",
+  "c5-shield.html",
+  "c6-unwind.html",
+  "c7-onboarding.html"
+ ],
+ "notes": {
+  "t": {
+   "x": 0,
+   "y": -300,
+   "text": "Twist · three brand directions",
+   "kind": "title1",
+   "maxW": 4000
+  },
+  "ha": {
+   "x": 0,
+   "y": -110,
+   "text": "A · Yolk — the egg timer",
+   "kind": "title2",
+   "maxW": 2000
+  },
+  "hb": {
+   "x": 0,
+   "y": 1130,
+   "text": "B · Dial — the Braun-style timer",
+   "kind": "title2",
+   "maxW": 2000
+  },
+  "hc": {
+   "x": 0,
+   "y": 2370,
+   "text": "C · Vault — the timer safe",
+   "kind": "title2",
+   "maxW": 2000
+  }
+ },
+ "annotations": [
+  {
+   "id": "claude-1",
+   "x": 2710,
+   "y": -230,
+   "w": 390,
+   "color": "blue",
+   "text": "Shield is the system screen iOS draws over a blocked app. Only icon, title, subtitle, background colour and two button labels can be set; the font is always the system one. The second button can't open Twist directly: it sends a notification you tap to go to the unwind screen."
+  },
+  {
+   "id": "claude-2",
+   "x": 3160,
+   "y": -230,
+   "w": 390,
+   "color": "blue",
+   "text": "Unwind: while you hold, the dial runs back towards zero over about 45 s. Let go and it springs back to the time left; the session goes on."
+  },
+  {
+   "id": "claude-3",
+   "x": 1360,
+   "y": -230,
+   "w": 800,
+   "color": "blue",
+   "text": "Each row: brand sheet with icon → main screen before and during the twist → locked → system shield → emergency unwind → onboarding. Leave a sticky note on whatever you like or dislike; mixing is fine (e.g. B's dial with A's colours)."
+  }
+ ],
+ "designSystems": []
+}
