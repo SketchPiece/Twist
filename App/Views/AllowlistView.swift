@@ -12,12 +12,17 @@ struct AllowlistContent: View {
             ScrollView {
                 VStack(spacing: 0) {
                     let apps = Array(model.allowlist.applicationTokens)
-                    if apps.isEmpty {
+                    let categories = Array(model.allowlist.categoryTokens)
+                    if apps.isEmpty && categories.isEmpty {
                         Text("Nothing yet")
                             .font(.tight(18))
                             .opacity(0.4)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .frame(height: 64)
+                    }
+                    ForEach(categories, id: \.self) { token in
+                        Label(token)
+                            .labelStyle(AppRowStyle(note: "All apps"))
                     }
                     ForEach(apps, id: \.self) { token in
                         Label(token)
@@ -28,7 +33,7 @@ struct AllowlistContent: View {
             .scrollBounceBehavior(.basedOnSize)
 
             Button { picking = true } label: {
-                Text(model.allowlist.applicationTokens.isEmpty ? "Choose apps" : "Change")
+                Text(model.allowlist.applicationTokens.isEmpty && model.allowlist.categoryTokens.isEmpty ? "Choose apps" : "Change")
                     .font(.tight(17, .semibold))
                     .foregroundStyle(Color.signal)
                     .frame(height: 50)
@@ -40,11 +45,16 @@ struct AllowlistContent: View {
 }
 
 private struct AppRowStyle: LabelStyle {
+    var note: String?
+
     func makeBody(configuration: Configuration) -> some View {
         HStack(spacing: 14) {
             configuration.icon.scaleEffect(1.3).frame(width: 36, height: 36)
-            configuration.title.font(.tight(19, .medium))
+            configuration.title.font(.tight(19, .medium)).lineLimit(1)
             Spacer()
+            if let note {
+                Text(note).font(.tight(16)).opacity(0.4)
+            }
         }
         .frame(height: 60)
         .overlay(alignment: .bottom) { Rectangle().fill(Color.graphite.opacity(0.1)).frame(height: 1) }

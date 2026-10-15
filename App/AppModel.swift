@@ -107,10 +107,16 @@ final class AppModel {
 
     // MARK: - Allowlist
 
+    /// Picking a whole category in the picker should keep every app in it open.
+    /// Shields can only exempt apps, so the selection expands categories into app tokens.
     private static func loadAllowlist() -> FamilyActivitySelection {
-        guard let data = Shared.defaults.data(forKey: "allowlist"),
-              let sel = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data)
-        else { return FamilyActivitySelection() }
+        var sel = FamilyActivitySelection(includeEntireCategory: true)
+        if let data = Shared.defaults.data(forKey: "allowlist"),
+           let saved = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
+            sel.applicationTokens = saved.applicationTokens
+            sel.categoryTokens = saved.categoryTokens
+            sel.webDomainTokens = saved.webDomainTokens
+        }
         return sel
     }
 
