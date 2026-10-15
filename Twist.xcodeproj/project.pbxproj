@@ -1,0 +1,930 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02466D8DC9B4E7D35949D994 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A58C77809DC8A48642A605B /* DeviceActivity.framework */; };
+		07810C9817563E3BD213B66F /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */; };
+		15442FA623F3BF01A6C1C0CE /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FE2F21F3CC446DEB3BBE0 /* ShieldActionExtension.swift */; };
+		161793E12F1FDFE88575899D /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
+		19C62DB42675C1E6CC53BBAE /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		1AFFF78871D0E6EE58C709CC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524A9723BEEB92BB3CD53CBA /* RootView.swift */; };
+		22BD0337D3C2B68F7EE0136A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8F8B74DB2739EEC936328 /* HomeView.swift */; };
+		2E8378D9C8CC8D58EEE91495 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */; };
+		579A25EB2D063730CB91D047 /* UnwindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA06F8EDBEB6AF907ADD478 /* UnwindView.swift */; };
+		6584F253A8F9539FFD04B7CA /* FamilyControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA85F0C13331FB80DE7A54A /* FamilyControls.framework */; };
+		67C0E656A3333F2070CC715F /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54FAF151ABA37AB7B86818 /* PacketTunnelProvider.swift */; };
+		68F58B82ECC5FE1B8735BF11 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
+		6CD2B4126934E6C3E7E632FC /* InterTight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13ACCAC2EFA6869FBEC1706C /* InterTight.ttf */; };
+		72C49D2BD4A92BFE14192D08 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */; };
+		8B3B9A102F31627AF75372A7 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85E26D666AE15D17DA92BD /* LockedView.swift */; };
+		9633E63A80216E13F6374886 /* MonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */; };
+		9BBA5C749215D75AF7FACBAB /* TwistShieldConfig.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70043A598A19D12283232E4A /* TwistShieldConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9DA86F485B9F539B02AE694B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		A28FF9BC031995774F79D6B7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */; };
+		A3CC6417C3422FFDCA16703F /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */; };
+		A6D50DE882F6FC67F41DE266 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
+		A6E0C6E763FD3439196621C5 /* VPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73974A810C0A1A1A883F325A /* VPN.swift */; };
+		A87C7EBA87DCEE1A60D7DA81 /* TwistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3758A8B3608AD67CDE228 /* TwistApp.swift */; };
+		B5BDCD269D4DB9CF4F0AFB1B /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
+		BD3818BA4231A04C219E74F7 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A58C77809DC8A48642A605B /* DeviceActivity.framework */; };
+		BE8E041D9AF1374969C37CAC /* TwistMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F22E302856AFFB92141B7101 /* TwistMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C08F72DB46A548B2A0AEE037 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		CF3F980B195197604637404D /* AllowlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896552245027E08A4EA85911 /* AllowlistView.swift */; };
+		D039D67ED2106D294784E946 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		D6097B4F36C26ABF5C77CCC5 /* TwistShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D44A418FAEB391543DB35425 /* TwistShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D7167EE3B0B1EC5A1FF211F1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		E1E72B05B6F20C30E3873D86 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DE04098687F0978CE931E /* Theme.swift */; };
+		E6365F2AF9C9278A5A97649C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */; };
+		EFE7D24A81F4E45E72BC0F11 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37C18089A3EDFF0B418B21 /* OnboardingView.swift */; };
+		F7C7948970843FC1AA93DE06 /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383DBCB76980B22E097C4AA /* DialView.swift */; };
+		FA3010E57A15BB04CE3A527D /* TwistTunnel.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 29ED8EC0013934DA0D0C506D /* TwistTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FEB3E3ECA1A23561E22569B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020AD566F76E921185725706 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CA1560FFAAD45A5500A45B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6869C58189EA0AEB852F965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B163734AFC517164EF265DC;
+			remoteInfo = TwistShieldAction;
+		};
+		961788240A7AB8E166D83527 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6869C58189EA0AEB852F965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0D8E122182043260C81D1F6;
+			remoteInfo = TwistShieldConfig;
+		};
+		9CDCBB65B12E1E961CE1BF18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6869C58189EA0AEB852F965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAAF939226BF5923419154F7;
+			remoteInfo = TwistMonitor;
+		};
+		C795097AE1DB5E6490F2052B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6869C58189EA0AEB852F965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C7AE0FA6C3137265EAEE3DE;
+			remoteInfo = TwistTunnel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		66161F8ECB438C27B9403CBC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BE8E041D9AF1374969C37CAC /* TwistMonitor.appex in Embed Foundation Extensions */,
+				9BBA5C749215D75AF7FACBAB /* TwistShieldConfig.appex in Embed Foundation Extensions */,
+				D6097B4F36C26ABF5C77CCC5 /* TwistShieldAction.appex in Embed Foundation Extensions */,
+				FA3010E57A15BB04CE3A527D /* TwistTunnel.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		020AD566F76E921185725706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0AE34D6D46F8A066A723A2AA /* Twist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Twist.entitlements; sourceTree = "<group>"; };
+		13ACCAC2EFA6869FBEC1706C /* InterTight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterTight.ttf; sourceTree = "<group>"; };
+		1E7FE2F21F3CC446DEB3BBE0 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		29ED8EC0013934DA0D0C506D /* TwistTunnel.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A58C77809DC8A48642A605B /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		3EA06F8EDBEB6AF907ADD478 /* UnwindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindView.swift; sourceTree = "<group>"; };
+		4913D1E8A2839FD17C448A7B /* ShieldConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfig.entitlements; sourceTree = "<group>"; };
+		50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorExtension.swift; sourceTree = "<group>"; };
+		524A9723BEEB92BB3CD53CBA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		5B54FAF151ABA37AB7B86818 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		5E85E26D666AE15D17DA92BD /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
+		70043A598A19D12283232E4A /* TwistShieldConfig.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistShieldConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		73974A810C0A1A1A883F325A /* VPN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPN.swift; sourceTree = "<group>"; };
+		75CFF0D154B0EBA8C94C8879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		77CD3274BC817FC796577321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		87343FF36A6CEC11762FA435 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		896552245027E08A4EA85911 /* AllowlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowlistView.swift; sourceTree = "<group>"; };
+		8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9383DBCB76980B22E097C4AA /* DialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
+		9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		9DE259391C6883D11B03E4E3 /* Twist.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Twist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F354D3C9C000DD415B7E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A405F6FD5CDD381D99CEF74C /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
+		B9AFB81E82A0DEA627F01869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BDBF92599F90753A524A0B6B /* Tunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunnel.entitlements; sourceTree = "<group>"; };
+		C8C0C25281ABFA64EED34788 /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
+		D06DE04098687F0978CE931E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D44A418FAEB391543DB35425 /* TwistShieldAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8D8F8B74DB2739EEC936328 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DBA85F0C13331FB80DE7A54A /* FamilyControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FamilyControls.framework; path = System/Library/Frameworks/FamilyControls.framework; sourceTree = SDKROOT; };
+		DBD3758A8B3608AD67CDE228 /* TwistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwistApp.swift; sourceTree = "<group>"; };
+		DC8B235A50150233D789DBE9 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		DE2CC0BA1CE61F18AB2B27F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EF37C18089A3EDFF0B418B21 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F22E302856AFFB92141B7101 /* TwistMonitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A003A66D2BEC476EDF4B170 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5BDCD269D4DB9CF4F0AFB1B /* ManagedSettings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48B0BD24266D5961A87DA1BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161793E12F1FDFE88575899D /* ManagedSettings.framework in Frameworks */,
+				2E8378D9C8CC8D58EEE91495 /* ManagedSettingsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BC45A2992D7B36C64B49C3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3CC6417C3422FFDCA16703F /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DCD171D1DB5C9754F4F956D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02466D8DC9B4E7D35949D994 /* DeviceActivity.framework in Frameworks */,
+				A6D50DE882F6FC67F41DE266 /* ManagedSettings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCBF27653D2C8871E5BF0C0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6584F253A8F9539FFD04B7CA /* FamilyControls.framework in Frameworks */,
+				68F58B82ECC5FE1B8735BF11 /* ManagedSettings.framework in Frameworks */,
+				BD3818BA4231A04C219E74F7 /* DeviceActivity.framework in Frameworks */,
+				07810C9817563E3BD213B66F /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1454DCE8FAD92A23DFA66251 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				020AD566F76E921185725706 /* Assets.xcassets */,
+				3FF89DF7C53383C4A03BC288 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2EEA2549AA107B1C2345B989 /* ShieldAction */ = {
+			isa = PBXGroup;
+			children = (
+				B9AFB81E82A0DEA627F01869 /* Info.plist */,
+				A405F6FD5CDD381D99CEF74C /* ShieldAction.entitlements */,
+				1E7FE2F21F3CC446DEB3BBE0 /* ShieldActionExtension.swift */,
+			);
+			path = ShieldAction;
+			sourceTree = "<group>";
+		};
+		2F78BC6ADF56D23543EE8261 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DE259391C6883D11B03E4E3 /* Twist.app */,
+				F22E302856AFFB92141B7101 /* TwistMonitor.appex */,
+				D44A418FAEB391543DB35425 /* TwistShieldAction.appex */,
+				70043A598A19D12283232E4A /* TwistShieldConfig.appex */,
+				29ED8EC0013934DA0D0C506D /* TwistTunnel.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32D2F0CC4A88433F4A73EAA1 /* Tunnel */ = {
+			isa = PBXGroup;
+			children = (
+				75CFF0D154B0EBA8C94C8879 /* Info.plist */,
+				5B54FAF151ABA37AB7B86818 /* PacketTunnelProvider.swift */,
+				BDBF92599F90753A524A0B6B /* Tunnel.entitlements */,
+			);
+			path = Tunnel;
+			sourceTree = "<group>";
+		};
+		3FF89DF7C53383C4A03BC288 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				13ACCAC2EFA6869FBEC1706C /* InterTight.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4B8E64ED7540A3C261ED480F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */,
+				DE2CC0BA1CE61F18AB2B27F3 /* Info.plist */,
+				D06DE04098687F0978CE931E /* Theme.swift */,
+				0AE34D6D46F8A066A723A2AA /* Twist.entitlements */,
+				DBD3758A8B3608AD67CDE228 /* TwistApp.swift */,
+				73974A810C0A1A1A883F325A /* VPN.swift */,
+				1454DCE8FAD92A23DFA66251 /* Resources */,
+				CC2A25ED0F8B7481B5D6EE62 /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		691C7B7AB955D52EB8FB4C58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A58C77809DC8A48642A605B /* DeviceActivity.framework */,
+				DBA85F0C13331FB80DE7A54A /* FamilyControls.framework */,
+				DC8B235A50150233D789DBE9 /* ManagedSettings.framework */,
+				9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */,
+				56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77A5D6D50E57E8AC464AB9E2 /* ShieldConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */,
+				A1F354D3C9C000DD415B7E1A /* Info.plist */,
+				4913D1E8A2839FD17C448A7B /* ShieldConfig.entitlements */,
+				8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */,
+			);
+			path = ShieldConfig;
+			sourceTree = "<group>";
+		};
+		893CBC5E11A37C1240845D00 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				77CD3274BC817FC796577321 /* Info.plist */,
+				C8C0C25281ABFA64EED34788 /* Monitor.entitlements */,
+				50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		8E34BC4A599C2123FD33F8E9 = {
+			isa = PBXGroup;
+			children = (
+				4B8E64ED7540A3C261ED480F /* App */,
+				893CBC5E11A37C1240845D00 /* Monitor */,
+				ECC3061CCC0A770A5D1702BB /* Shared */,
+				2EEA2549AA107B1C2345B989 /* ShieldAction */,
+				77A5D6D50E57E8AC464AB9E2 /* ShieldConfig */,
+				32D2F0CC4A88433F4A73EAA1 /* Tunnel */,
+				691C7B7AB955D52EB8FB4C58 /* Frameworks */,
+				2F78BC6ADF56D23543EE8261 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC2A25ED0F8B7481B5D6EE62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				896552245027E08A4EA85911 /* AllowlistView.swift */,
+				9383DBCB76980B22E097C4AA /* DialView.swift */,
+				D8D8F8B74DB2739EEC936328 /* HomeView.swift */,
+				5E85E26D666AE15D17DA92BD /* LockedView.swift */,
+				EF37C18089A3EDFF0B418B21 /* OnboardingView.swift */,
+				524A9723BEEB92BB3CD53CBA /* RootView.swift */,
+				3EA06F8EDBEB6AF907ADD478 /* UnwindView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ECC3061CCC0A770A5D1702BB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				87343FF36A6CEC11762FA435 /* Session.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C7AE0FA6C3137265EAEE3DE /* TwistTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDF410441A2DDB7250EBC892 /* Build configuration list for PBXNativeTarget "TwistTunnel" */;
+			buildPhases = (
+				ABF8BFFFCE3FA54E129B037E /* Sources */,
+				4BC45A2992D7B36C64B49C3C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwistTunnel;
+			packageProductDependencies = (
+			);
+			productName = TwistTunnel;
+			productReference = 29ED8EC0013934DA0D0C506D /* TwistTunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7B163734AFC517164EF265DC /* TwistShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4383BF6550BBA900F5A8010E /* Build configuration list for PBXNativeTarget "TwistShieldAction" */;
+			buildPhases = (
+				584550A23D736626B641C9BC /* Sources */,
+				0A003A66D2BEC476EDF4B170 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwistShieldAction;
+			packageProductDependencies = (
+			);
+			productName = TwistShieldAction;
+			productReference = D44A418FAEB391543DB35425 /* TwistShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		9E0E7C646B57EABA114BD855 /* Twist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BD555A87114D96A819680BF /* Build configuration list for PBXNativeTarget "Twist" */;
+			buildPhases = (
+				6E727119B8DFB80A9E733DE3 /* Sources */,
+				B89BBE5A47618BB67A91172E /* Resources */,
+				FCBF27653D2C8871E5BF0C0D /* Frameworks */,
+				66161F8ECB438C27B9403CBC /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DAFA2930F147E8B148B54BE /* PBXTargetDependency */,
+				E68C2C6FBEB96FBAC69EE1A8 /* PBXTargetDependency */,
+				6B029421FEE4E63B57B8E13D /* PBXTargetDependency */,
+				E1732D68337398C76DC4D7A5 /* PBXTargetDependency */,
+			);
+			name = Twist;
+			packageProductDependencies = (
+			);
+			productName = Twist;
+			productReference = 9DE259391C6883D11B03E4E3 /* Twist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAAF939226BF5923419154F7 /* TwistMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FD48175B84516AC42702E47 /* Build configuration list for PBXNativeTarget "TwistMonitor" */;
+			buildPhases = (
+				ACC528A30A69FBDE63B8A796 /* Sources */,
+				4DCD171D1DB5C9754F4F956D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwistMonitor;
+			packageProductDependencies = (
+			);
+			productName = TwistMonitor;
+			productReference = F22E302856AFFB92141B7101 /* TwistMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E0D8E122182043260C81D1F6 /* TwistShieldConfig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B74A9CCEC3E96F54B69D888 /* Build configuration list for PBXNativeTarget "TwistShieldConfig" */;
+			buildPhases = (
+				5ECF1F589D32215EB10B58E8 /* Sources */,
+				E07FFFBF8B38F8C14134A176 /* Resources */,
+				48B0BD24266D5961A87DA1BE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwistShieldConfig;
+			packageProductDependencies = (
+			);
+			productName = TwistShieldConfig;
+			productReference = 70043A598A19D12283232E4A /* TwistShieldConfig.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6869C58189EA0AEB852F965 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2C7AE0FA6C3137265EAEE3DE = {
+						DevelopmentTeam = 4KSA86792T;
+						ProvisioningStyle = Automatic;
+					};
+					7B163734AFC517164EF265DC = {
+						DevelopmentTeam = 4KSA86792T;
+						ProvisioningStyle = Automatic;
+					};
+					9E0E7C646B57EABA114BD855 = {
+						DevelopmentTeam = 4KSA86792T;
+						ProvisioningStyle = Automatic;
+					};
+					AAAF939226BF5923419154F7 = {
+						DevelopmentTeam = 4KSA86792T;
+						ProvisioningStyle = Automatic;
+					};
+					E0D8E122182043260C81D1F6 = {
+						DevelopmentTeam = 4KSA86792T;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0DC64FBD5496F6CB3CA54426 /* Build configuration list for PBXProject "Twist" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8E34BC4A599C2123FD33F8E9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2F78BC6ADF56D23543EE8261 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E0E7C646B57EABA114BD855 /* Twist */,
+				AAAF939226BF5923419154F7 /* TwistMonitor */,
+				E0D8E122182043260C81D1F6 /* TwistShieldConfig */,
+				7B163734AFC517164EF265DC /* TwistShieldAction */,
+				2C7AE0FA6C3137265EAEE3DE /* TwistTunnel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B89BBE5A47618BB67A91172E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB3E3ECA1A23561E22569B4 /* Assets.xcassets in Resources */,
+				6CD2B4126934E6C3E7E632FC /* InterTight.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E07FFFBF8B38F8C14134A176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6365F2AF9C9278A5A97649C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		584550A23D736626B641C9BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7167EE3B0B1EC5A1FF211F1 /* Session.swift in Sources */,
+				15442FA623F3BF01A6C1C0CE /* ShieldActionExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ECF1F589D32215EB10B58E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DA86F485B9F539B02AE694B /* Session.swift in Sources */,
+				72C49D2BD4A92BFE14192D08 /* ShieldConfigurationExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E727119B8DFB80A9E733DE3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF3F980B195197604637404D /* AllowlistView.swift in Sources */,
+				A28FF9BC031995774F79D6B7 /* AppModel.swift in Sources */,
+				F7C7948970843FC1AA93DE06 /* DialView.swift in Sources */,
+				22BD0337D3C2B68F7EE0136A /* HomeView.swift in Sources */,
+				8B3B9A102F31627AF75372A7 /* LockedView.swift in Sources */,
+				EFE7D24A81F4E45E72BC0F11 /* OnboardingView.swift in Sources */,
+				1AFFF78871D0E6EE58C709CC /* RootView.swift in Sources */,
+				C08F72DB46A548B2A0AEE037 /* Session.swift in Sources */,
+				E1E72B05B6F20C30E3873D86 /* Theme.swift in Sources */,
+				A87C7EBA87DCEE1A60D7DA81 /* TwistApp.swift in Sources */,
+				579A25EB2D063730CB91D047 /* UnwindView.swift in Sources */,
+				A6E0C6E763FD3439196621C5 /* VPN.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABF8BFFFCE3FA54E129B037E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67C0E656A3333F2070CC715F /* PacketTunnelProvider.swift in Sources */,
+				D039D67ED2106D294784E946 /* Session.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC528A30A69FBDE63B8A796 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9633E63A80216E13F6374886 /* MonitorExtension.swift in Sources */,
+				19C62DB42675C1E6CC53BBAE /* Session.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DAFA2930F147E8B148B54BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAAF939226BF5923419154F7 /* TwistMonitor */;
+			targetProxy = 9CDCBB65B12E1E961CE1BF18 /* PBXContainerItemProxy */;
+		};
+		6B029421FEE4E63B57B8E13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B163734AFC517164EF265DC /* TwistShieldAction */;
+			targetProxy = 7CA1560FFAAD45A5500A45B6 /* PBXContainerItemProxy */;
+		};
+		E1732D68337398C76DC4D7A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C7AE0FA6C3137265EAEE3DE /* TwistTunnel */;
+			targetProxy = C795097AE1DB5E6490F2052B /* PBXContainerItemProxy */;
+		};
+		E68C2C6FBEB96FBAC69EE1A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0D8E122182043260C81D1F6 /* TwistShieldConfig */;
+			targetProxy = 961788240A7AB8E166D83527 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0868D254CE761894B7C1B89C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfig/ShieldConfig.entitlements;
+				INFOPLIST_FILE = ShieldConfig/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.shieldconfig;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FC41A3A8366AED0BCC00006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Twist.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50369F918EDDCEEC1CD871F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Monitor/Monitor.entitlements;
+				INFOPLIST_FILE = Monitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.monitor;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50AD20A4743B4FC57183B28B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4KSA86792T;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		8AA11347D10AE7F04CDEE59E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Tunnel/Tunnel.entitlements;
+				INFOPLIST_FILE = Tunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.tunnel;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8E6192A4BD54F4BAA2EC3EA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
+				INFOPLIST_FILE = ShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.shieldaction;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93DAF3C3BF57B481EA9F1912 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/Twist.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9F6FE3ACE17542F24100A223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Monitor/Monitor.entitlements;
+				INFOPLIST_FILE = Monitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.monitor;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF8BEC49CCAC95AFF008D90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfig/ShieldConfig.entitlements;
+				INFOPLIST_FILE = ShieldConfig/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.shieldconfig;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4E8CE0550B44534209D55E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
+				INFOPLIST_FILE = ShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.shieldaction;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D63D62AFCA02998DB743C30B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4KSA86792T;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D9D6876B27C8A57290F477D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Tunnel/Tunnel.entitlements;
+				INFOPLIST_FILE = Tunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.tunnel;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DC64FBD5496F6CB3CA54426 /* Build configuration list for PBXProject "Twist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D63D62AFCA02998DB743C30B /* Debug */,
+				50AD20A4743B4FC57183B28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3B74A9CCEC3E96F54B69D888 /* Build configuration list for PBXNativeTarget "TwistShieldConfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0868D254CE761894B7C1B89C /* Debug */,
+				BF8BEC49CCAC95AFF008D90D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3BD555A87114D96A819680BF /* Build configuration list for PBXNativeTarget "Twist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FC41A3A8366AED0BCC00006 /* Debug */,
+				93DAF3C3BF57B481EA9F1912 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4383BF6550BBA900F5A8010E /* Build configuration list for PBXNativeTarget "TwistShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4E8CE0550B44534209D55E4 /* Debug */,
+				8E6192A4BD54F4BAA2EC3EA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6FD48175B84516AC42702E47 /* Build configuration list for PBXNativeTarget "TwistMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F6FE3ACE17542F24100A223 /* Debug */,
+				50369F918EDDCEEC1CD871F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FDF410441A2DDB7250EBC892 /* Build configuration list for PBXNativeTarget "TwistTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AA11347D10AE7F04CDEE59E /* Debug */,
+				D9D6876B27C8A57290F477D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A6869C58189EA0AEB852F965 /* Project object */;
+}

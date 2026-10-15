@@ -1,5 +1,4 @@
-.DS_Store
-xcuserdata/
-DerivedData/
 build/
-*.ipa
+DerivedData/
+*.xcuserstate
+xcuserdata/

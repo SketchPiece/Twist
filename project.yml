@@ -1,0 +1,152 @@
+name: Twist
+options:
+  bundleIdPrefix: com.sketchpiece
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: 4KSA86792T
+    CODE_SIGN_STYLE: Automatic
+    TARGETED_DEVICE_FAMILY: "1"
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.1"
+    CURRENT_PROJECT_VERSION: "1"
+    GENERATE_INFOPLIST_FILE: NO
+
+targets:
+  Twist:
+    type: application
+    platform: iOS
+    sources: [App, Shared]
+    dependencies:
+      - target: TwistMonitor
+      - target: TwistShieldConfig
+      - target: TwistShieldAction
+      - target: TwistTunnel
+      - sdk: FamilyControls.framework
+      - sdk: ManagedSettings.framework
+      - sdk: DeviceActivity.framework
+      - sdk: NetworkExtension.framework
+    entitlements:
+      path: App/Twist.entitlements
+      properties:
+        com.apple.developer.family-controls: true
+        com.apple.security.application-groups: [group.com.sketchpiece.twist]
+        com.apple.developer.networking.networkextension: [packet-tunnel-provider]
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Twist
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIAppFonts: [InterTight.ttf]
+        UILaunchScreen:
+          UIColorName: Paper
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+
+  TwistMonitor:
+    type: app-extension
+    platform: iOS
+    sources: [Monitor, Shared]
+    dependencies:
+      - sdk: DeviceActivity.framework
+      - sdk: ManagedSettings.framework
+    entitlements:
+      path: Monitor/Monitor.entitlements
+      properties:
+        com.apple.developer.family-controls: true
+        com.apple.security.application-groups: [group.com.sketchpiece.twist]
+    info:
+      path: Monitor/Info.plist
+      properties:
+        CFBundleDisplayName: Twist Monitor
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.deviceactivity.monitor-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).MonitorExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist.monitor
+
+  TwistShieldConfig:
+    type: app-extension
+    platform: iOS
+    sources: [ShieldConfig, Shared]
+    dependencies:
+      - sdk: ManagedSettings.framework
+      - sdk: ManagedSettingsUI.framework
+    entitlements:
+      path: ShieldConfig/ShieldConfig.entitlements
+      properties:
+        com.apple.developer.family-controls: true
+        com.apple.security.application-groups: [group.com.sketchpiece.twist]
+    info:
+      path: ShieldConfig/Info.plist
+      properties:
+        CFBundleDisplayName: Twist Shield
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ManagedSettingsUI.shield-configuration-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldConfigurationExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist.shieldconfig
+
+  TwistShieldAction:
+    type: app-extension
+    platform: iOS
+    sources: [ShieldAction, Shared]
+    dependencies:
+      - sdk: ManagedSettings.framework
+    entitlements:
+      path: ShieldAction/ShieldAction.entitlements
+      properties:
+        com.apple.developer.family-controls: true
+        com.apple.security.application-groups: [group.com.sketchpiece.twist]
+    info:
+      path: ShieldAction/Info.plist
+      properties:
+        CFBundleDisplayName: Twist Shield Action
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.ManagedSettings.shield-action-service
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShieldActionExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist.shieldaction
+
+  TwistTunnel:
+    type: app-extension
+    platform: iOS
+    sources: [Tunnel, Shared]
+    dependencies:
+      - sdk: NetworkExtension.framework
+    entitlements:
+      path: Tunnel/Tunnel.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.sketchpiece.twist]
+        com.apple.developer.networking.networkextension: [packet-tunnel-provider]
+    info:
+      path: Tunnel/Info.plist
+      properties:
+        CFBundleDisplayName: Twist Tunnel
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist.tunnel
