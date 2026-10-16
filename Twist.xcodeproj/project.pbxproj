@@ -17,15 +17,21 @@
 		1AFFF78871D0E6EE58C709CC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524A9723BEEB92BB3CD53CBA /* RootView.swift */; };
 		22BD0337D3C2B68F7EE0136A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D8F8B74DB2739EEC936328 /* HomeView.swift */; };
 		22CEC9A0CC6A7071BA559401 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2ACBF998175AF720BCDD9B /* HomeView.swift */; };
+		23752F5BAC167675A36EADBE /* LockAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A222351DB4DF3A1642785177 /* LockAttributes.swift */; };
 		2E8378D9C8CC8D58EEE91495 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */; };
+		2FDCEE98841902B0F411129B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44471314EAF0C05836D11D47 /* SwiftUI.framework */; };
+		309B7CAD2B0D6BD93E89E260 /* LiveLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B5F878B4FA545B863D963E /* LiveLock.swift */; };
 		3C6CEF6467BB72F1FC272DFA /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D6BF4A944B39DD15FF54C /* Cloud.swift */; };
 		40E8465E738AC4DD690FDB02 /* UnwindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9CE81D31B3A932BC007500 /* UnwindView.swift */; };
 		4483C990476BB1BB5918073A /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B584B8B085E49FFE08F762F /* Doc.swift */; };
 		48F3EC169BE601A9E3AEC956 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
 		4979FF632FF67183D8527B03 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D6BF4A944B39DD15FF54C /* Cloud.swift */; };
+		4AB46A41BA519958CB160DE1 /* InterTight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13ACCAC2EFA6869FBEC1706C /* InterTight.ttf */; };
+		4C6100AD36E92EF4FAE5AAF4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DE04098687F0978CE931E /* Theme.swift */; };
 		515DF0AE37DB10ABBEA3AF04 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1DA443A177611FCD271D07 /* LockedView.swift */; };
 		51CD80D52AC77CA120789267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAA728769EEB15F86DBBC5E /* Assets.xcassets */; };
 		5406153342F3EE6CC723F9C0 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A085F60B0023DF53784F5B /* Hub.swift */; };
+		5442FE42E1310E168FFD38B7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0032727DC29F6324F4F2BA /* WidgetKit.framework */; };
 		579A25EB2D063730CB91D047 /* UnwindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA06F8EDBEB6AF907ADD478 /* UnwindView.swift */; };
 		6584F253A8F9539FFD04B7CA /* FamilyControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA85F0C13331FB80DE7A54A /* FamilyControls.framework */; };
 		67C0E656A3333F2070CC715F /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B54FAF151ABA37AB7B86818 /* PacketTunnelProvider.swift */; };
@@ -41,7 +47,9 @@
 		985F4BE165B887E77E7EF44C /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383DBCB76980B22E097C4AA /* DialView.swift */; };
 		9BBA5C749215D75AF7FACBAB /* TwistShieldConfig.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70043A598A19D12283232E4A /* TwistShieldConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9DA86F485B9F539B02AE694B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		A0319AD8E95720AB6C4935F0 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
 		A28FF9BC031995774F79D6B7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */; };
+		A35BA9DDE0E501C3B67A12ED /* TwistIsland.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 643DA320CA5DC5CBEAA2A41E /* TwistIsland.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3CC6417C3422FFDCA16703F /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */; };
 		A6D50DE882F6FC67F41DE266 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
 		A6E0C6E763FD3439196621C5 /* VPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73974A810C0A1A1A883F325A /* VPN.swift */; };
@@ -53,6 +61,7 @@
 		BD3818BA4231A04C219E74F7 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A58C77809DC8A48642A605B /* DeviceActivity.framework */; };
 		BE8E041D9AF1374969C37CAC /* TwistMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F22E302856AFFB92141B7101 /* TwistMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C08F72DB46A548B2A0AEE037 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
+		C2EA91E3AA4E4B044D11600F /* LockAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A222351DB4DF3A1642785177 /* LockAttributes.swift */; };
 		C533C1CB3CA501479DF47F07 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
 		CF3F980B195197604637404D /* AllowlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896552245027E08A4EA85911 /* AllowlistView.swift */; };
 		D039D67ED2106D294784E946 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
@@ -61,6 +70,7 @@
 		D6097B4F36C26ABF5C77CCC5 /* TwistShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D44A418FAEB391543DB35425 /* TwistShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D7167EE3B0B1EC5A1FF211F1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
 		DF4E4FD165EB3DF6D42A5202 /* Lockdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2945767A9F535024BE701D /* Lockdown.swift */; };
+		E04D842859CC98FF7FC311D6 /* IslandBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AE00628EF4A9131E6CA23 /* IslandBundle.swift */; };
 		E1E72B05B6F20C30E3873D86 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DE04098687F0978CE931E /* Theme.swift */; };
 		E50F187F4A33D0306D26584D /* RingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CF01E193053D0F3EC78372 /* RingViews.swift */; };
 		E6365F2AF9C9278A5A97649C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */; };
@@ -101,6 +111,13 @@
 			remoteGlobalIDString = 2C7AE0FA6C3137265EAEE3DE;
 			remoteInfo = TwistTunnel;
 		};
+		E3BD5993BA69C926A42E6C7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6869C58189EA0AEB852F965 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B0B6F5877ADD9FDE3E9752F;
+			remoteInfo = TwistIsland;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,6 +127,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				A35BA9DDE0E501C3B67A12ED /* TwistIsland.appex in Embed Foundation Extensions */,
 				BE8E041D9AF1374969C37CAC /* TwistMonitor.appex in Embed Foundation Extensions */,
 				9BBA5C749215D75AF7FACBAB /* TwistShieldConfig.appex in Embed Foundation Extensions */,
 				D6097B4F36C26ABF5C77CCC5 /* TwistShieldAction.appex in Embed Foundation Extensions */,
@@ -131,6 +149,7 @@
 		3A58C77809DC8A48642A605B /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 		3B584B8B085E49FFE08F762F /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
 		3EA06F8EDBEB6AF907ADD478 /* UnwindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindView.swift; sourceTree = "<group>"; };
+		44471314EAF0C05836D11D47 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		461306698D16F28912A3A88F /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 		4913D1E8A2839FD17C448A7B /* ShieldConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfig.entitlements; sourceTree = "<group>"; };
 		50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorExtension.swift; sourceTree = "<group>"; };
@@ -139,6 +158,7 @@
 		5B54FAF151ABA37AB7B86818 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		5C2ACBF998175AF720BCDD9B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5E85E26D666AE15D17DA92BD /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
+		643DA320CA5DC5CBEAA2A41E /* TwistIsland.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistIsland.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1DA443A177611FCD271D07 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
 		70043A598A19D12283232E4A /* TwistShieldConfig.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistShieldConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		73974A810C0A1A1A883F325A /* VPN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPN.swift; sourceTree = "<group>"; };
@@ -152,17 +172,21 @@
 		8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
 		8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9383DBCB76980B22E097C4AA /* DialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
+		95CC8D16525D2634C446DA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
 		9DE259391C6883D11B03E4E3 /* Twist.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Twist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CF01E193053D0F3EC78372 /* RingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingViews.swift; sourceTree = "<group>"; };
 		A1F354D3C9C000DD415B7E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A222351DB4DF3A1642785177 /* LockAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockAttributes.swift; sourceTree = "<group>"; };
 		A3A47A1BE2A2BC5416BB4F98 /* TwistMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwistMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A405F6FD5CDD381D99CEF74C /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
 		ABFD44D3F6D9F436BCCFD291 /* TwistMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwistMacApp.swift; sourceTree = "<group>"; };
+		AC2AE00628EF4A9131E6CA23 /* IslandBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandBundle.swift; sourceTree = "<group>"; };
 		B9AFB81E82A0DEA627F01869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDBF92599F90753A524A0B6B /* Tunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunnel.entitlements; sourceTree = "<group>"; };
 		C740A78F05CCF39D4033C7E6 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		C8C0C25281ABFA64EED34788 /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
+		CA0032727DC29F6324F4F2BA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CB2945767A9F535024BE701D /* Lockdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lockdown.swift; sourceTree = "<group>"; };
 		D06DE04098687F0978CE931E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D416119B24126D736C29262C /* TwistMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwistMac.entitlements; sourceTree = "<group>"; };
@@ -172,6 +196,7 @@
 		DBD3758A8B3608AD67CDE228 /* TwistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwistApp.swift; sourceTree = "<group>"; };
 		DC8B235A50150233D789DBE9 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
 		DE2CC0BA1CE61F18AB2B27F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E0B5F878B4FA545B863D963E /* LiveLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveLock.swift; sourceTree = "<group>"; };
 		E5C8FBC340E4B55B0CE3C744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E9701247F1C25B3F00D5A85E /* MacModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacModel.swift; sourceTree = "<group>"; };
 		EF37C18089A3EDFF0B418B21 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -212,6 +237,15 @@
 			files = (
 				02466D8DC9B4E7D35949D994 /* DeviceActivity.framework in Frameworks */,
 				A6D50DE882F6FC67F41DE266 /* ManagedSettings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7A50E50539FF8D36D0A844A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5442FE42E1310E168FFD38B7 /* WidgetKit.framework in Frameworks */,
+				2FDCEE98841902B0F411129B /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				9DE259391C6883D11B03E4E3 /* Twist.app */,
+				643DA320CA5DC5CBEAA2A41E /* TwistIsland.appex */,
 				A3A47A1BE2A2BC5416BB4F98 /* TwistMac.app */,
 				F22E302856AFFB92141B7101 /* TwistMonitor.appex */,
 				D44A418FAEB391543DB35425 /* TwistShieldAction.appex */,
@@ -295,6 +330,7 @@
 			children = (
 				1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */,
 				DE2CC0BA1CE61F18AB2B27F3 /* Info.plist */,
+				E0B5F878B4FA545B863D963E /* LiveLock.swift */,
 				D06DE04098687F0978CE931E /* Theme.swift */,
 				0AE34D6D46F8A066A723A2AA /* Twist.entitlements */,
 				DBD3758A8B3608AD67CDE228 /* TwistApp.swift */,
@@ -305,6 +341,16 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		5F4D73EA6FE4FD14189937FF /* Island */ = {
+			isa = PBXGroup;
+			children = (
+				95CC8D16525D2634C446DA97 /* Info.plist */,
+				AC2AE00628EF4A9131E6CA23 /* IslandBundle.swift */,
+				A222351DB4DF3A1642785177 /* LockAttributes.swift */,
+			);
+			path = Island;
+			sourceTree = "<group>";
+		};
 		691C7B7AB955D52EB8FB4C58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +359,8 @@
 				DC8B235A50150233D789DBE9 /* ManagedSettings.framework */,
 				9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */,
 				56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */,
+				44471314EAF0C05836D11D47 /* SwiftUI.framework */,
+				CA0032727DC29F6324F4F2BA /* WidgetKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -356,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				4B8E64ED7540A3C261ED480F /* App */,
+				5F4D73EA6FE4FD14189937FF /* Island */,
 				75873C9E53DEDA4B602DD4A3 /* Mac */,
 				893CBC5E11A37C1240845D00 /* Monitor */,
 				D16EFCE739FFC6642708BB8A /* Ring */,
@@ -442,6 +491,25 @@
 			productReference = 29ED8EC0013934DA0D0C506D /* TwistTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		4B0B6F5877ADD9FDE3E9752F /* TwistIsland */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B192F17E23613499C3AAF04 /* Build configuration list for PBXNativeTarget "TwistIsland" */;
+			buildPhases = (
+				97EF30E1CCA44481FB6D32F4 /* Sources */,
+				40B81D2C4D9F44897BF1A729 /* Resources */,
+				A7A50E50539FF8D36D0A844A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwistIsland;
+			packageProductDependencies = (
+			);
+			productName = TwistIsland;
+			productReference = 643DA320CA5DC5CBEAA2A41E /* TwistIsland.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7B163734AFC517164EF265DC /* TwistShieldAction */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4383BF6550BBA900F5A8010E /* Build configuration list for PBXNativeTarget "TwistShieldAction" */;
@@ -472,6 +540,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4EC3272EBD3C357EC7A0CE08 /* PBXTargetDependency */,
 				5DAFA2930F147E8B148B54BE /* PBXTargetDependency */,
 				E68C2C6FBEB96FBAC69EE1A8 /* PBXTargetDependency */,
 				6B029421FEE4E63B57B8E13D /* PBXTargetDependency */,
@@ -538,6 +607,10 @@
 						DevelopmentTeam = 4KSA86792T;
 						ProvisioningStyle = Automatic;
 					};
+					4B0B6F5877ADD9FDE3E9752F = {
+						DevelopmentTeam = 4KSA86792T;
+						ProvisioningStyle = Automatic;
+					};
 					7B163734AFC517164EF265DC = {
 						DevelopmentTeam = 4KSA86792T;
 						ProvisioningStyle = Automatic;
@@ -571,6 +644,7 @@
 			projectRoot = "";
 			targets = (
 				9E0E7C646B57EABA114BD855 /* Twist */,
+				4B0B6F5877ADD9FDE3E9752F /* TwistIsland */,
 				AAAF939226BF5923419154F7 /* TwistMonitor */,
 				E0D8E122182043260C81D1F6 /* TwistShieldConfig */,
 				7B163734AFC517164EF265DC /* TwistShieldAction */,
@@ -581,6 +655,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		40B81D2C4D9F44897BF1A729 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB46A41BA519958CB160DE1 /* InterTight.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9513646E4B0E3C525E0D68D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -641,6 +723,8 @@
 				22BD0337D3C2B68F7EE0136A /* HomeView.swift in Sources */,
 				5406153342F3EE6CC723F9C0 /* Hub.swift in Sources */,
 				0129CA6C758E85DFCAA42830 /* Link.swift in Sources */,
+				309B7CAD2B0D6BD93E89E260 /* LiveLock.swift in Sources */,
+				C2EA91E3AA4E4B044D11600F /* LockAttributes.swift in Sources */,
 				8B3B9A102F31627AF75372A7 /* LockedView.swift in Sources */,
 				EFE7D24A81F4E45E72BC0F11 /* OnboardingView.swift in Sources */,
 				E50F187F4A33D0306D26584D /* RingViews.swift in Sources */,
@@ -650,6 +734,17 @@
 				A87C7EBA87DCEE1A60D7DA81 /* TwistApp.swift in Sources */,
 				579A25EB2D063730CB91D047 /* UnwindView.swift in Sources */,
 				A6E0C6E763FD3439196621C5 /* VPN.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97EF30E1CCA44481FB6D32F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04D842859CC98FF7FC311D6 /* IslandBundle.swift in Sources */,
+				23752F5BAC167675A36EADBE /* LockAttributes.swift in Sources */,
+				A0319AD8E95720AB6C4935F0 /* Session.swift in Sources */,
+				4C6100AD36E92EF4FAE5AAF4 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +793,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4EC3272EBD3C357EC7A0CE08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B0B6F5877ADD9FDE3E9752F /* TwistIsland */;
+			targetProxy = E3BD5993BA69C926A42E6C7D /* PBXContainerItemProxy */;
+		};
 		5DAFA2930F147E8B148B54BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AAAF939226BF5923419154F7 /* TwistMonitor */;
@@ -935,6 +1035,21 @@
 			};
 			name = Debug;
 		};
+		B964FC70B8553B1601E1859D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Island/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.island;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		BF8BEC49CCAC95AFF008D90D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1052,6 +1167,21 @@
 			};
 			name = Release;
 		};
+		E1B6C00E777C8BC55DCD645F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Island/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchpiece.twist.island;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1060,6 +1190,15 @@
 			buildConfigurations = (
 				D63D62AFCA02998DB743C30B /* Debug */,
 				50AD20A4743B4FC57183B28B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1B192F17E23613499C3AAF04 /* Build configuration list for PBXNativeTarget "TwistIsland" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B964FC70B8553B1601E1859D /* Debug */,
+				E1B6C00E777C8BC55DCD645F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

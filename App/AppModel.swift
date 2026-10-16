@@ -96,6 +96,7 @@ final class AppModel {
         }
 
         if device == nil { await hub.publish(session: s) }
+        await LiveLock.show(s, by: device)
 
         _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
         do {
@@ -118,7 +119,10 @@ final class AppModel {
             unwinding = false
             lockedBy = nil
         }
-        Task { await VPN.stop() }
+        Task {
+            await LiveLock.hide()
+            await VPN.stop()
+        }
     }
 
     /// Held all the way through here: open every device in the ring.
@@ -195,11 +199,17 @@ final class AppModel {
             if session != nil { withAnimation { session = nil; unwinding = false } }
             // The monitor may have ended the session while we were away; turn the VPN off.
             store.clearAllSettings()
-            Task { await VPN.stop() }
+            Task {
+                await LiveLock.hide()
+                await VPN.stop()
+            }
         } else if let s {
             session = s
             // A lock that arrived in the background may not have got its VPN up.
-            Task { await VPN.ensureRunning() }
+            Task {
+                await LiveLock.show(s, by: lockedBy)
+                await VPN.ensureRunning()
+            }
         }
     }
 

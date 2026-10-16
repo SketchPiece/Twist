@@ -25,6 +25,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         UNUserNotificationCenter.current().delegate = self
         // Silent iCloud pushes wake the app when another device locks or unwinds.
         application.registerForRemoteNotifications()
+        #if DEBUG
+        LiveLock.previewIfAsked()
+        #endif
         return true
     }
 
