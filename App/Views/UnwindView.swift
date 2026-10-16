@@ -20,12 +20,15 @@ struct UnwindView: View {
             GeometryReader { geo in
                 let full = geo.size.height + geo.safeAreaInsets.top + geo.safeAreaInsets.bottom
                 let fill = full * p
-                ZStack(alignment: .bottom) {
-                    Color.night
+                // Measured inside ignoresSafeArea, so the fill never outgrows the screen
+                // (a taller child used to push the whole layer off the bottom edge).
+                GeometryReader { screen in
                     Color.signal
-                        .frame(height: fill)
+                        .frame(height: screen.size.height * p)
                         .shadow(color: Color.signal.opacity(p > 0 ? 0.45 : 0), radius: 24)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                 }
+                .background(Color.night)
                 .ignoresSafeArea()
                 .contentShape(Rectangle())
                 .gesture(
@@ -68,14 +71,11 @@ struct UnwindView: View {
             Text("Session ends on its own in \(TimeText.spoken(remaining))")
                 .font(.tight(17))
                 .opacity(0.5)
-            HStack(alignment: .lastTextBaseline, spacing: 4) {
-                Text("\(seconds)")
+            HStack(alignment: .lastTextBaseline, spacing: 10) {
+                Text(Self.tight("\(seconds)"))
                     .font(.tight(150, .bold))
-                    .tracking(-9)
                     .monospacedDigit()
                     .contentTransition(.numericText(countsDown: true))
-                    // Negative tracking eats into the last glyph's box; give it back so it isn't clipped.
-                    .padding(.trailing, 9)
                 Text("s")
                     .font(.tight(64, .bold))
             }
@@ -89,6 +89,16 @@ struct UnwindView: View {
                 .frame(maxWidth: 300, alignment: .leading)
                 .padding(.top, 16)
         }
+    }
+
+    /// Pulls the digits together without tracking the last one: trailing tracking
+    /// shrinks the last glyph's box and the numeric transition clips it.
+    private static func tight(_ digits: String) -> AttributedString {
+        var text = AttributedString(digits)
+        if let last = text.characters.indices.last {
+            text[text.startIndex..<last].tracking = -9
+        }
+        return text
     }
 
     private func thumb(onOrange: Bool) -> some View {
