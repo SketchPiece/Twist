@@ -236,7 +236,6 @@ struct AddDeviceView: View {
 /// Rings around this iPhone with a sweep; a found device sits on the middle ring.
 private struct Radar: View {
     var found: Device?
-    @State private var sweep = false
 
     var body: some View {
         ZStack {
@@ -245,11 +244,15 @@ private struct Radar: View {
                     .stroke(Color.graphite.opacity(0.22 - Double(i) * 0.06), lineWidth: 1.4)
                     .frame(width: 140 + CGFloat(i) * 84, height: 140 + CGFloat(i) * 84)
             }
-            Wedge(degrees: 50)
-                .fill(Color.signal.opacity(0.14))
-                .frame(width: 308, height: 308)
-                .rotationEffect(.degrees(sweep ? 360 : 0))
-                .animation(.linear(duration: 3.2).repeatForever(autoreverses: false), value: sweep)
+            // Angle from the clock, not a repeatForever animation: that one picks up
+            // the push transition and layout changes and wobbles off-centre.
+            TimelineView(.animation) { context in
+                let t = context.date.timeIntervalSinceReferenceDate
+                Wedge(degrees: 50)
+                    .fill(Color.signal.opacity(0.14))
+                    .frame(width: 308, height: 308)
+                    .rotationEffect(.degrees(t.truncatingRemainder(dividingBy: 3.2) / 3.2 * 360))
+            }
             Circle()
                 .fill(Color.graphite)
                 .frame(width: 80, height: 80)
@@ -267,7 +270,6 @@ private struct Radar: View {
         }
         .frame(width: 320, height: 320)
         .animation(.spring(duration: 0.4), value: found)
-        .onAppear { sweep = true }
     }
 }
 
