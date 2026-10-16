@@ -86,6 +86,7 @@ struct PillButton: View {
                 .frame(height: 58)
                 .background(fill, in: Capsule())
                 .foregroundStyle(text)
+                .frame(maxWidth: 400)
         }
         .buttonStyle(PressStyle())
     }
