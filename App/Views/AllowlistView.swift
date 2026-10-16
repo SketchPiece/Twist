@@ -49,7 +49,9 @@ private struct AppRowStyle: LabelStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         HStack(spacing: 14) {
-            configuration.icon.scaleEffect(1.3).frame(width: 36, height: 36)
+            // The system draws the icon at the font's size; scaling it afterwards
+            // stretches a bitmap and frays its rounded corners.
+            configuration.icon.font(.system(size: 30)).frame(width: 36, height: 36)
             configuration.title.font(.tight(19, .medium)).lineLimit(1)
             Spacer()
             if let note {
