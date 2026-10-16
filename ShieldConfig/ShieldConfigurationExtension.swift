@@ -11,20 +11,23 @@ final class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     override func configuration(shielding webDomain: WebDomain, in category: ActivityCategory) -> ShieldConfiguration { make() }
 
     private func make() -> ShieldConfiguration {
-        // Light scheme: on iOS 26 the shield can sit on the system's light glass
-        // instead of our background, so the text has to read on light either way.
+        // On iOS 26 the shield sits on the system's glass, which follows the phone's
+        // light or dark appearance and ignores our background, so the text does too.
         let paper = UIColor(red: 0xEF / 255, green: 0xED / 255, blue: 0xE7 / 255, alpha: 1)
         let graphite = UIColor(red: 0x1B / 255, green: 0x1B / 255, blue: 0x1A / 255, alpha: 1)
+        let night = UIColor(red: 0x12 / 255, green: 0x12 / 255, blue: 0x11 / 255, alpha: 1)
+        let dark = UITraitCollection.current.userInterfaceStyle == .dark
+        let ink = dark ? paper : graphite
         let subtitle = Session.current.map { "Opens in \(TimeText.spoken($0.remaining))" } ?? "Opens soon"
         return ShieldConfiguration(
             backgroundBlurStyle: nil,
-            backgroundColor: paper,
+            backgroundColor: dark ? night : paper,
             icon: UIImage(named: "ShieldIcon"),
-            title: .init(text: "Locked by Twist", color: graphite),
-            subtitle: .init(text: subtitle, color: graphite.withAlphaComponent(0.6)),
-            primaryButtonLabel: .init(text: "OK", color: paper),
-            primaryButtonBackgroundColor: graphite,
-            secondaryButtonLabel: .init(text: "I need access", color: graphite.withAlphaComponent(0.7))
+            title: .init(text: "Locked by Twist", color: ink),
+            subtitle: .init(text: subtitle, color: ink.withAlphaComponent(0.6)),
+            primaryButtonLabel: .init(text: "OK", color: dark ? graphite : paper),
+            primaryButtonBackgroundColor: ink,
+            secondaryButtonLabel: .init(text: "I need access", color: ink.withAlphaComponent(0.7))
         )
     }
 }
