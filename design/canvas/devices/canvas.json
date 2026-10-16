@@ -214,19 +214,6 @@
  },
  "annotations": [
   {
-   "id": "claude-1",
-   "x": 1300,
-   "y": -250,
-   "w": 420,
-   "color": "blue",
-   "text": "A and B differ only in how Home shows the devices. I'd go with A: before you lock you can see who will lock with you and who is offline. B is cleaner but hides it behind an icon.",
-   "to": {
-    "board": "1b-home-strip.html",
-    "x": 195,
-    "y": 136
-   }
-  },
-  {
    "id": "claude-2",
    "x": 3600,
    "y": 3420,
@@ -258,11 +245,24 @@
    "y": -250,
    "w": 340,
    "color": "blue",
-   "text": "The list replaces nothing: it's a sheet from the strip (A) or the button (B).",
+   "text": "The list opens as a sheet from the devices button (B).",
    "to": {
     "board": "1d-devices.html",
     "x": 195,
     "y": 110
+   }
+  },
+  {
+   "id": "claude-5",
+   "x": 1300,
+   "y": -250,
+   "w": 360,
+   "color": "blue",
+   "text": "Chosen: B. The Mac window uses the same button (row 3).",
+   "to": {
+    "board": "1c-home-button.html",
+    "x": 36,
+    "y": 94
    }
   }
  ],

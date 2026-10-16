@@ -306,11 +306,10 @@ page(
   "1280x800",
   desktop(
     macWin(`<div class="mac-home">
-  ${wordmark()}
-  <div class="strip-wrap" style="margin-top:14px">${stripMac}</div>
+  <div class="top" style="position:relative;width:100%">${wordmark()}<div style="position:absolute;inset:0;opacity:.45">${devBtn}</div></div>
   <div style="flex:1;display:flex;align-items:center">${dial(90, { size: 300 })}</div>
   ${big("1:30")}
-  <div style="margin-top:12px">${small("until 15:40 · on 3 devices")}</div>
+  <div style="margin-top:12px">${small("MacBook Pro, iPhone and iPad · until 15:40")}</div>
   <div class="cta" style="background:${C.graphite};color:${C.paper};width:300px;margin-top:22px">Lock</div>
 </div>`),
     mbIcon()
