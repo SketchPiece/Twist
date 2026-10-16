@@ -22,9 +22,20 @@ final class AppModel {
         didSet { Shared.defaults.set(onboarded, forKey: "onboarded") }
     }
     /// Apps that stay open during a session.
-    var allowlist: FamilyActivitySelection = AppModel.loadAllowlist() {
-        didSet { saveAllowlist() }
+    var allowlist: FamilyActivitySelection = AppModel.loadSelection("allowlist") {
+        didSet { AppModel.save(allowlist, "allowlist") }
     }
+    /// Apps that disappear from the Home Screen during a session (everything else still
+    /// gets the shield). iOS gives no way to list installed apps, so this is whatever was
+    /// picked last; picking whole categories catches the apps in them at that moment.
+    var hidden: FamilyActivitySelection = AppModel.loadSelection("hidden") {
+        didSet { AppModel.save(hidden, "hidden") }
+    }
+    /// Open the picker before every lock, so apps installed since get hidden too.
+    var checksNewApps: Bool = Shared.defaults.object(forKey: "checksNewApps") as? Bool ?? true {
+        didSet { Shared.defaults.set(checksNewApps, forKey: "checksNewApps") }
+    }
+    var hides: Bool { !hidden.applicationTokens.isEmpty || !hidden.categoryTokens.isEmpty }
     var lastError: String?
 
     let hub = Hub.shared
@@ -74,6 +85,10 @@ final class AppModel {
         store.shield.applicationCategories = .all(except: allowlist.applicationTokens)
         store.shield.webDomainCategories = .all(except: allowlist.webDomainTokens)
         store.application.denyAppRemoval = true
+        // What stays open is never hidden. The system brings hidden apps back when
+        // the settings are cleared at the end.
+        let hide = hidden.applicationTokens.subtracting(allowlist.applicationTokens)
+        store.application.blockedApplications = hide.isEmpty ? nil : Set(hide.map { Application(token: $0) })
 
         let cal = Calendar.current
         let parts: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
@@ -213,13 +228,14 @@ final class AppModel {
         withAnimation(.smooth(duration: 0.4)) { unwinding = false }
     }
 
-    // MARK: - Allowlist
+    // MARK: - Allowlist and hidden apps
 
-    /// Picking a whole category in the picker should keep every app in it open.
-    /// Shields can only exempt apps, so the selection expands categories into app tokens.
-    private static func loadAllowlist() -> FamilyActivitySelection {
+    /// Picking a whole category in the picker should cover every app in it.
+    /// Shields can only exempt apps and hiding takes apps only, so the selection
+    /// expands categories into app tokens.
+    private static func loadSelection(_ key: String) -> FamilyActivitySelection {
         var sel = FamilyActivitySelection(includeEntireCategory: true)
-        if let data = Shared.defaults.data(forKey: "allowlist"),
+        if let data = Shared.defaults.data(forKey: key),
            let saved = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
             sel.applicationTokens = saved.applicationTokens
             sel.categoryTokens = saved.categoryTokens
@@ -228,9 +244,9 @@ final class AppModel {
         return sel
     }
 
-    private func saveAllowlist() {
-        if let data = try? JSONEncoder().encode(allowlist) {
-            Shared.defaults.set(data, forKey: "allowlist")
+    private static func save(_ sel: FamilyActivitySelection, _ key: String) {
+        if let data = try? JSONEncoder().encode(sel) {
+            Shared.defaults.set(data, forKey: key)
         }
     }
 }

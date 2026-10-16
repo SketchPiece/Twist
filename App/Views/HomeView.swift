@@ -6,6 +6,7 @@ struct HomeView: View {
     @State private var showAllowlist = false
     @State private var showDevices = false
     @State private var starting = false
+    @State private var checkingApps = false
 
     private var ready: Bool { minutes >= 15 }
 
@@ -54,9 +55,12 @@ struct HomeView: View {
                 guard !starting else { return }
                 starting = true
                 UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                Task {
-                    await model.start(minutes: minutes)
-                    starting = false
+                // iOS can't tell us about newly installed apps. Done in the picker
+                // re-reads the chosen categories, so they get hidden too.
+                if model.hides && model.checksNewApps {
+                    checkingApps = true
+                } else {
+                    lock()
                 }
             }
             .opacity(ready ? 1 : 0)
@@ -69,12 +73,27 @@ struct HomeView: View {
         .padding(.bottom, 12)
         .foregroundStyle(Color.graphite)
         .background(Color.paper.ignoresSafeArea())
+        .familyActivityPicker(
+            headerText: "Tap Done to hide apps installed since last time.",
+            isPresented: $checkingApps,
+            selection: Binding(get: { model.hidden }, set: { model.hidden = $0 })
+        )
+        .onChange(of: checkingApps) { _, open in
+            if !open && starting { lock() }
+        }
         .sheet(isPresented: $showDevices) {
             DevicesSheet()
         }
         .sheet(isPresented: $showAllowlist) {
             AllowlistSheet()
                 .presentationDetents([.medium, .large])
+        }
+    }
+
+    private func lock() {
+        Task {
+            await model.start(minutes: minutes)
+            starting = false
         }
     }
 
