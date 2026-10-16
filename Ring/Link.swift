@@ -29,15 +29,20 @@ final class Pipe {
     var onClose: () -> Void = {}
     private let conn: NWConnection
     private var closed = false
+    /// Holds the pipe while the connection is open; nobody else has to.
+    private var alive: Pipe?
 
     init(_ conn: NWConnection) { self.conn = conn }
     convenience init(to endpoint: NWEndpoint) { self.init(NWConnection(to: endpoint, using: .tcp)) }
 
     func start() {
+        alive = self
         conn.stateUpdateHandler = { [weak self] state in
             MainActor.assumeIsolated {
                 switch state {
                 case .failed, .cancelled: self?.finish()
+                // Unreachable on the local network: give up rather than wait forever.
+                case .waiting: self?.close()
                 default: break
                 }
             }
@@ -61,6 +66,7 @@ final class Pipe {
         guard !closed else { return }
         closed = true
         onClose()
+        alive = nil
     }
 
     private func read() {
