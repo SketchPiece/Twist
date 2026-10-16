@@ -1,0 +1,102 @@
+{
+ "v": 3,
+ "title": "Twist · Unwind screen: stop looking like Home",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "0a-home.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Now · Home"
+  },
+  "0b-unwind-now.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Now · Unwind"
+  },
+  "a-flood.html": {
+   "x": 1100,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A. Flood: the screen fills"
+  },
+  "b-receipt.html": {
+   "x": 1570,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "B. Receipt: what reopens"
+  },
+  "c-sheet.html": {
+   "x": 2040,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "C. Sheet over Locked"
+  }
+ },
+ "order": [
+  "0a-home.html",
+  "0b-unwind-now.html",
+  "a-flood.html",
+  "b-receipt.html",
+  "c-sheet.html"
+ ],
+ "notes": {
+  "t": {
+   "x": 0,
+   "y": -260,
+   "text": "Twist · Unwind screen: stop looking like Home",
+   "kind": "title1",
+   "maxW": 2500
+  },
+  "n0": {
+   "x": 0,
+   "y": -120,
+   "text": "Now: same skeleton (dial, big number, button at the bottom)",
+   "kind": "title2",
+   "maxW": 860
+  },
+  "n1": {
+   "x": 1100,
+   "y": -120,
+   "text": "Variants: no dial, different structure",
+   "kind": "title2",
+   "maxW": 1400
+  }
+ },
+ "annotations": [
+  {
+   "id": "claude-1",
+   "x": 1100,
+   "y": 880,
+   "w": 390,
+   "color": "blue",
+   "text": "A · The whole screen is the button. Hold anywhere and orange rises from the bottom; full screen = unlocked. Huge countdown top-left. Let go and it drains back down."
+  },
+  {
+   "id": "claude-2",
+   "x": 1570,
+   "y": 880,
+   "w": 390,
+   "color": "blue",
+   "text": "B · Text first: how much time was left and what comes back. A wide bar at the bottom fills while you hold. Adds friction through meaning rather than the dial."
+  },
+  {
+   "id": "claude-3",
+   "x": 2040,
+   "y": 880,
+   "w": 390,
+   "color": "blue",
+   "text": "C · Not a screen but a paper sheet over the dimmed Locked screen: obviously a dialog. 9 blocks of 5 s, one knock each (the knocks already exist in code)."
+  }
+ ],
+ "designSystems": []
+}
