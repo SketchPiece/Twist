@@ -35,9 +35,16 @@ final class AppModel {
 
     func start(minutes: Int) async {
         lastError = nil
-        guard AuthorizationCenter.shared.authorizationStatus == .approved else {
-            onboarded = false
-            return
+        // authorizationStatus reads .notDetermined for a moment after launch (and after an
+        // update), even when access is granted. Ask again instead of trusting it: this returns
+        // at once when access is already there, and only a real refusal sends you back to setup.
+        if AuthorizationCenter.shared.authorizationStatus != .approved {
+            do {
+                try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
+            } catch {
+                onboarded = false
+                return
+            }
         }
         let now = Date()
         let s = Session(start: now, end: now.addingTimeInterval(TimeInterval(minutes * 60)))
