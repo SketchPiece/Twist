@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The Braun-style kitchen timer. One turn = 4 hours; the orange wedge is the time.
+/// The Braun-style kitchen timer, flat. One turn = 4 hours; the orange wedge is the time.
 struct DialFace: View {
     /// Minutes shown by the wedge (0...240).
     var minutes: Double
@@ -9,35 +9,34 @@ struct DialFace: View {
     var body: some View {
         GeometryReader { geo in
             let side = min(geo.size.width, geo.size.height)
-            let u = side / 300 // drawn on a 300-unit grid
+            let u = side / 280 // drawn on a 280-unit grid, face radius 140
             let tick = dark ? Color.paper : Color.graphite
             ZStack {
                 Circle()
                     .fill(dark ? Color.nightFace : Color.paperFace)
-                    .shadow(color: .black.opacity(dark ? 0.5 : 0.10), radius: 0, x: 0, y: 6 * u)
 
                 Wedge(degrees: minutes * 1.5)
                     .fill(Color.signal)
-                    .padding(32 * u)
+                    .padding(16 * u)
 
+                // Hour marks and a dot every 15 minutes.
                 Canvas { ctx, size in
                     let c = CGPoint(x: size.width / 2, y: size.height / 2)
-                    let r = 140 * u
-                    for m in stride(from: 0, to: 240, by: 5) {
-                        let major = m % 60 == 0, mid = m % 15 == 0
-                        let a = Double(m) * 1.5 * .pi / 180
-                        let outer = r - 4 * u, inner = r - (major ? 20 : mid ? 13 : 9) * u
-                        var p = Path()
-                        p.move(to: CGPoint(x: c.x + outer * sin(a), y: c.y - outer * cos(a)))
-                        p.addLine(to: CGPoint(x: c.x + inner * sin(a), y: c.y - inner * cos(a)))
-                        ctx.stroke(p, with: .color(tick.opacity(major ? 1 : mid ? 0.7 : 0.35)),
-                                   style: StrokeStyle(lineWidth: (major ? 3 : mid ? 2 : 1.2) * u, lineCap: .round))
+                    func at(_ r: CGFloat, _ a: Double) -> CGPoint {
+                        CGPoint(x: c.x + r * u * sin(a), y: c.y - r * u * cos(a))
                     }
-                    for h in 0..<4 {
-                        let a = Double(h) * 90 * .pi / 180
-                        let rr = r - 40 * u
-                        let text = ctx.resolve(Text("\(h)").font(.tight(22 * u, .semibold)).foregroundStyle(tick))
-                        ctx.draw(text, at: CGPoint(x: c.x + rr * sin(a), y: c.y - rr * cos(a)))
+                    for m in stride(from: 0, to: 240, by: 15) {
+                        let a = Double(m) * 1.5 * .pi / 180
+                        if m % 60 == 0 {
+                            var p = Path()
+                            p.move(to: at(132, a))
+                            p.addLine(to: at(120, a))
+                            ctx.stroke(p, with: .color(tick), style: StrokeStyle(lineWidth: 3 * u, lineCap: .round))
+                        } else {
+                            let p = at(130, a), r = 1.6 * u
+                            ctx.fill(Path(ellipseIn: CGRect(x: p.x - r, y: p.y - r, width: 2 * r, height: 2 * r)),
+                                     with: .color(tick.opacity(0.35)))
+                        }
                     }
                 }
 
@@ -59,14 +58,11 @@ private struct Knob: View {
         GeometryReader { g in
             let s = g.size.width
             ZStack {
-                Circle().fill(.black.opacity(0.18)).offset(y: s * 0.035)
                 Circle().fill(dark ? Color(white: 0.16) : Color.graphite)
-                Circle().fill(RadialGradient(colors: [.white.opacity(0.18), .clear],
-                                             center: UnitPoint(x: 0.35, y: 0.3), startRadius: 0, endRadius: s * 0.7))
                 Capsule()
                     .fill(Color.signal)
-                    .frame(width: s * 0.055, height: s * 0.44)
-                    .offset(y: -s * 0.22)
+                    .frame(width: s * 0.055, height: s * 0.42)
+                    .offset(y: -s * 0.18)
                     .rotationEffect(.degrees(degrees))
             }
         }

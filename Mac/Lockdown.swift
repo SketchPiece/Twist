@@ -61,7 +61,6 @@ final class Lockdown {
         for w in windows { w.orderOut(nil) }
         windows = []
         NSApp.presentationOptions = []
-        try? SMAppService.mainApp.unregister()
     }
 
     /// Bring the lock back to the front and take keyboard focus.

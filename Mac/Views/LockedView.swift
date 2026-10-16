@@ -7,13 +7,16 @@ struct LockRoot: View {
 
     var body: some View {
         ZStack {
-            if primary && model.unwinding {
+            if let by = model.openedBy {
+                OpenedFlash(by: by).transition(.opacity)
+            } else if primary && model.unwinding {
                 UnwindView().transition(.opacity)
             } else {
                 LockedView(primary: primary).transition(.opacity)
             }
         }
         .animation(.smooth(duration: 0.45), value: model.unwinding)
+        .animation(.smooth(duration: 0.45), value: model.openedBy)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.night)
         .preferredColorScheme(.dark)
@@ -51,6 +54,15 @@ struct LockedView: View {
                         }
                     }
 
+                    if let by = model.lockedBy {
+                        Label("Locked from \(by.name)", systemImage: by.symbol)
+                            .font(.tight(14))
+                            .padding(.horizontal, 14)
+                            .frame(height: 34)
+                            .background(Color.paper.opacity(0.08), in: Capsule())
+                            .padding(.top, 22)
+                    }
+
                     Button("I need access") { model.openUnwind() }
                         .buttonStyle(.plain)
                         .font(.tight(17))
@@ -65,5 +77,32 @@ struct LockedView: View {
             }
         }
         .foregroundStyle(Color.paper)
+    }
+}
+
+/// Another device unwound the lock: say who, then the lock lets go.
+private struct OpenedFlash: View {
+    @Environment(MacModel.self) private var model
+    var by: Device
+
+    var body: some View {
+        VStack(spacing: 0) {
+            Text("Unwound on \(by.name)")
+                .font(.tight(20, .semibold))
+                .opacity(0.6)
+            Text("Open")
+                .font(.tight(150, .bold))
+                .tracking(-7)
+                .padding(.top, 10)
+            if let s = model.session {
+                Text("This Mac is yours again. The lock had \(TimeText.spoken(s.remaining)) left.")
+                    .font(.tight(20))
+                    .opacity(0.6)
+                    .padding(.top, 26)
+            }
+        }
+        .foregroundStyle(Color.graphite)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.signal)
     }
 }

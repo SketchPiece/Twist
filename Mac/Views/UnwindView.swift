@@ -92,7 +92,9 @@ struct UnwindView: View {
             .lineLimit(1)
             .padding(.top, 10)
             (Text("left to hold. ").fontWeight(.semibold)
-                + Text("Keep the mouse button or Space down until the screen is full. Let go and you stay locked.").foregroundStyle(Color.paper.opacity(0.7)))
+                + Text(model.hub.inRing
+                    ? "Keep the mouse button or Space down until the screen is full. Then \(model.hub.names(model.hub.members)) open. Let go and you stay locked."
+                    : "Keep the mouse button or Space down until the screen is full. Let go and you stay locked.").foregroundStyle(Color.paper.opacity(0.7)))
                 .font(.tight(24))
                 .lineSpacing(4)
                 .frame(maxWidth: 460, alignment: .leading)
@@ -131,7 +133,7 @@ struct UnwindView: View {
 
     private func finish() {
         holding = false
-        model.end()
+        model.unwind()
     }
 
     private func release() {

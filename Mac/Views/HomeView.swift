@@ -2,15 +2,30 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(MacModel.self) private var model
+    @Environment(Hub.self) private var hub
+    @Environment(\.openWindow) private var openWindow
     @State private var minutes = 0
 
     private var ready: Bool { minutes >= 15 }
 
     var body: some View {
         VStack(spacing: 0) {
-            Wordmark()
-                .frame(height: 44)
-                .padding(.top, 8)
+            ZStack {
+                Wordmark()
+                HStack {
+                    Button { openWindow(id: "devices") } label: {
+                        DevicesButtonLabel(count: hub.members.count)
+                            .foregroundStyle(Color.graphite.opacity(0.45))
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .help("Devices")
+                    .offset(x: -14)
+                    Spacer()
+                }
+            }
+            .frame(height: 44)
+            .padding(.top, 8)
 
             Spacer(minLength: 12)
             TwistDial(minutes: $minutes)
@@ -24,13 +39,13 @@ struct HomeView: View {
                     .monospacedDigit()
                     .contentTransition(.numericText(value: Double(minutes)))
                     .animation(.snappy(duration: 0.2), value: minutes)
-                Text(ready ? "Mac locked until \(TimeText.time(Date().addingTimeInterval(TimeInterval(minutes * 60))))" : "Twist to set")
+                Text(ready ? caption : "Twist to set")
                     .font(.tight(17))
                     .opacity(0.55)
             }
             .frame(minHeight: 120)
 
-            PillButton(title: "Lock Mac") { model.start(minutes: minutes) }
+            PillButton(title: hub.inRing ? "Lock" : "Lock Mac") { model.start(minutes: minutes) }
                 .keyboardShortcut(.defaultAction)
                 .opacity(ready ? 1 : 0)
                 .offset(y: ready ? 0 : 12)
@@ -44,5 +59,10 @@ struct HomeView: View {
         .foregroundStyle(Color.graphite)
         .background(Color.paper.ignoresSafeArea())
         .preferredColorScheme(.light)
+    }
+
+    private var caption: String {
+        let until = TimeText.time(Date().addingTimeInterval(TimeInterval(minutes * 60)))
+        return hub.inRing ? "\(hub.names(hub.members)) · until \(until)" : "Mac locked until \(until)"
     }
 }

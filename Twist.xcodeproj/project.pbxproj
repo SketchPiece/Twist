@@ -35,6 +35,7 @@
 		71324C18CD6015B3AE4B4F26 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D6BF4A944B39DD15FF54C /* Cloud.swift */; };
 		72C49D2BD4A92BFE14192D08 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */; };
 		8B3B9A102F31627AF75372A7 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85E26D666AE15D17DA92BD /* LockedView.swift */; };
+		8ED12107AD782D2F0538D173 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461306698D16F28912A3A88F /* DevicesView.swift */; };
 		9633E63A80216E13F6374886 /* MonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */; };
 		985F4BE165B887E77E7EF44C /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9383DBCB76980B22E097C4AA /* DialView.swift */; };
 		9BBA5C749215D75AF7FACBAB /* TwistShieldConfig.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 70043A598A19D12283232E4A /* TwistShieldConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -46,6 +47,7 @@
 		A87C7EBA87DCEE1A60D7DA81 /* TwistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3758A8B3608AD67CDE228 /* TwistApp.swift */; };
 		B33958A248954FD4FF1DEAC2 /* MacModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9701247F1C25B3F00D5A85E /* MacModel.swift */; };
 		B5BDCD269D4DB9CF4F0AFB1B /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
+		B708AB283DC9DD06CD27EFBE /* RingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CF01E193053D0F3EC78372 /* RingViews.swift */; };
 		BB15F1C4B4F695CD3C04A92E /* InterTight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13ACCAC2EFA6869FBEC1706C /* InterTight.ttf */; };
 		BD3818BA4231A04C219E74F7 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A58C77809DC8A48642A605B /* DeviceActivity.framework */; };
 		BE8E041D9AF1374969C37CAC /* TwistMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F22E302856AFFB92141B7101 /* TwistMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -59,6 +61,7 @@
 		D7167EE3B0B1EC5A1FF211F1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
 		DF4E4FD165EB3DF6D42A5202 /* Lockdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2945767A9F535024BE701D /* Lockdown.swift */; };
 		E1E72B05B6F20C30E3873D86 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06DE04098687F0978CE931E /* Theme.swift */; };
+		E50F187F4A33D0306D26584D /* RingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CF01E193053D0F3EC78372 /* RingViews.swift */; };
 		E6365F2AF9C9278A5A97649C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */; };
 		EFE7D24A81F4E45E72BC0F11 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF37C18089A3EDFF0B418B21 /* OnboardingView.swift */; };
 		F45A2C289252328543DC4155 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = C740A78F05CCF39D4033C7E6 /* Link.swift */; };
@@ -126,6 +129,7 @@
 		3A58C77809DC8A48642A605B /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 		3B584B8B085E49FFE08F762F /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
 		3EA06F8EDBEB6AF907ADD478 /* UnwindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindView.swift; sourceTree = "<group>"; };
+		461306698D16F28912A3A88F /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 		4913D1E8A2839FD17C448A7B /* ShieldConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfig.entitlements; sourceTree = "<group>"; };
 		50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorExtension.swift; sourceTree = "<group>"; };
 		524A9723BEEB92BB3CD53CBA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		9383DBCB76980B22E097C4AA /* DialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
 		9D9F567E607EEB1255FA133E /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
 		9DE259391C6883D11B03E4E3 /* Twist.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Twist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0CF01E193053D0F3EC78372 /* RingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingViews.swift; sourceTree = "<group>"; };
 		A1F354D3C9C000DD415B7E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A3A47A1BE2A2BC5416BB4F98 /* TwistMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwistMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A405F6FD5CDD381D99CEF74C /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
@@ -225,6 +230,7 @@
 		0B698C33ED89CA10EC62594B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				461306698D16F28912A3A88F /* DevicesView.swift */,
 				5C2ACBF998175AF720BCDD9B /* HomeView.swift */,
 				6C1DA443A177611FCD271D07 /* LockedView.swift */,
 				7B9CE81D31B3A932BC007500 /* UnwindView.swift */,
@@ -381,6 +387,7 @@
 				3B584B8B085E49FFE08F762F /* Doc.swift */,
 				80A085F60B0023DF53784F5B /* Hub.swift */,
 				C740A78F05CCF39D4033C7E6 /* Link.swift */,
+				A0CF01E193053D0F3EC78372 /* RingViews.swift */,
 			);
 			path = Ring;
 			sourceTree = "<group>";
@@ -632,6 +639,7 @@
 				0129CA6C758E85DFCAA42830 /* Link.swift in Sources */,
 				8B3B9A102F31627AF75372A7 /* LockedView.swift in Sources */,
 				EFE7D24A81F4E45E72BC0F11 /* OnboardingView.swift in Sources */,
+				E50F187F4A33D0306D26584D /* RingViews.swift in Sources */,
 				1AFFF78871D0E6EE58C709CC /* RootView.swift in Sources */,
 				C08F72DB46A548B2A0AEE037 /* Session.swift in Sources */,
 				E1E72B05B6F20C30E3873D86 /* Theme.swift in Sources */,
@@ -666,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4979FF632FF67183D8527B03 /* Cloud.swift in Sources */,
+				8ED12107AD782D2F0538D173 /* DevicesView.swift in Sources */,
 				985F4BE165B887E77E7EF44C /* DialView.swift in Sources */,
 				6E7D850CB1D5E89489B4FA59 /* Doc.swift in Sources */,
 				22CEC9A0CC6A7071BA559401 /* HomeView.swift in Sources */,
@@ -674,6 +683,7 @@
 				DF4E4FD165EB3DF6D42A5202 /* Lockdown.swift in Sources */,
 				515DF0AE37DB10ABBEA3AF04 /* LockedView.swift in Sources */,
 				B33958A248954FD4FF1DEAC2 /* MacModel.swift in Sources */,
+				B708AB283DC9DD06CD27EFBE /* RingViews.swift in Sources */,
 				48F3EC169BE601A9E3AEC956 /* Session.swift in Sources */,
 				D535A390AE20032DF4EFFF24 /* Theme.swift in Sources */,
 				D221E4DFBE017A67D955CAD6 /* TwistMacApp.swift in Sources */,
