@@ -76,50 +76,9 @@ struct AllowlistSheet: View {
                 .padding(.top, 8)
                 .padding(.bottom, 12)
             AllowlistContent()
-            HiddenAppsRow()
-                .padding(.bottom, 12)
         }
         .padding(.horizontal, 28)
         .foregroundStyle(Color.graphite)
         .presentationBackground(Color.paper)
-    }
-}
-
-/// Hiding locked apps from the Home Screen, so a session leaves it close to empty.
-struct HiddenAppsRow: View {
-    @Environment(AppModel.self) private var model
-    @State private var picking = false
-
-    var body: some View {
-        @Bindable var model = model
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Hide from Home Screen")
-                        .font(.tight(19, .medium))
-                    Text(model.hides ? "\(model.hidden.applicationTokens.count) apps" : "Off. Locked apps stay visible.")
-                        .font(.tight(15))
-                        .opacity(0.5)
-                }
-                Spacer()
-                Button(model.hides ? "Change" : "Choose") { picking = true }
-                    .font(.tight(17, .semibold))
-                    .foregroundStyle(Color.signal)
-            }
-            if model.hides {
-                Toggle(isOn: $model.checksNewApps) {
-                    Text("Check for new apps before each lock")
-                        .font(.tight(16))
-                        .opacity(0.7)
-                }
-                .tint(.signal)
-            }
-        }
-        .padding(.top, 16)
-        .familyActivityPicker(
-            headerText: "Select every category to hide all apps. What stays open is never hidden.",
-            isPresented: $picking,
-            selection: $model.hidden
-        )
     }
 }
