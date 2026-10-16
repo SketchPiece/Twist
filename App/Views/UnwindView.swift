@@ -11,6 +11,9 @@ struct UnwindView: View {
     @State private var startProgress: Double = 0
     @State private var lastBuzz = 0
 
+    private static let tickHaptic = UIImpactFeedbackGenerator(style: .light)
+    private static let beatHaptic = UIImpactFeedbackGenerator(style: .heavy)
+
     var body: some View {
         TimelineView(.animation(paused: !holding)) { ctx in
             let p = current(at: ctx.date)
@@ -65,12 +68,14 @@ struct UnwindView: View {
             Text("Session ends on its own in \(TimeText.spoken(remaining))")
                 .font(.tight(17))
                 .opacity(0.5)
-            HStack(alignment: .lastTextBaseline, spacing: 10) {
+            HStack(alignment: .lastTextBaseline, spacing: 4) {
                 Text("\(seconds)")
                     .font(.tight(150, .bold))
                     .tracking(-9)
                     .monospacedDigit()
                     .contentTransition(.numericText(countsDown: true))
+                    // Negative tracking eats into the last glyph's box; give it back so it isn't clipped.
+                    .padding(.trailing, 9)
                 Text("s")
                     .font(.tight(64, .bold))
             }
@@ -113,19 +118,29 @@ struct UnwindView: View {
         holding = true
         holdStart = Date()
         startProgress = progress
-        lastBuzz = Int(progress * 9)
+        lastBuzz = Int(progress * Self.duration)
+        Self.tickHaptic.prepare()
+        Self.beatHaptic.prepare()
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
 
     private func tick(_ p: Double) {
         guard holding else { return }
-        let step = Int(p * 9) // a soft knock every 5 s
-        if step != lastBuzz {
-            lastBuzz = step
-            UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        // A faint tick every second, a firm knock every 5.
+        let second = Int(p * Self.duration)
+        if second != lastBuzz, p < 1 {
+            lastBuzz = second
+            if second % 5 == 0 {
+                Self.beatHaptic.impactOccurred()
+            } else {
+                Self.tickHaptic.impactOccurred(intensity: 0.45)
+            }
         }
         if p >= 1 {
+            // Stay full while the screen fades out, instead of draining back to the old progress.
+            progress = 1
             holding = false
+            holdStart = nil
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             model.end()
         }
