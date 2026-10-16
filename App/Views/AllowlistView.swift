@@ -91,16 +91,32 @@ private struct FocusRow: View {
 
     var body: some View {
         @Bindable var model = model
-        Toggle(isOn: $model.usesFocus) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Twist Focus")
-                    .font(.tight(19, .medium))
-                Text("Runs the Twist On and Twist Off shortcuts")
-                    .font(.tight(15))
-                    .opacity(0.5)
+        VStack(alignment: .leading, spacing: 10) {
+            Toggle(isOn: $model.usesFocus) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Twist Focus")
+                        .font(.tight(19, .medium))
+                    Text("Runs the Twist On and Twist Off shortcuts")
+                        .font(.tight(15))
+                        .opacity(0.5)
+                }
+            }
+            .tint(.signal)
+            if model.usesFocus {
+                // Signed shortcut files; the share sheet hands them to Shortcuts to add.
+                HStack(spacing: 20) {
+                    ForEach(["Twist On", "Twist Off"], id: \.self) { name in
+                        if let url = Bundle.main.url(forResource: name, withExtension: "shortcut") {
+                            ShareLink(item: url) {
+                                Text("Add \(name)")
+                                    .font(.tight(17, .semibold))
+                                    .foregroundStyle(Color.signal)
+                            }
+                        }
+                    }
+                }
             }
         }
-        .tint(.signal)
         .padding(.top, 16)
     }
 }
