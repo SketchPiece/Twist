@@ -81,8 +81,7 @@ struct TwistDial: View {
     @State private var angle: Double = 0 // continuous, 0...360
     @State private var last: Double?
     @State private var turning = false
-    private let haptic = UISelectionFeedbackGenerator()
-    private let snap = UIImpactFeedbackGenerator(style: .rigid)
+    private let haptic = Tick()
 
     var body: some View {
         GeometryReader { geo in
@@ -119,7 +118,7 @@ struct TwistDial: View {
                             // Sessions are 15 min to 4 h.
                             var m = minutes
                             if m > 0 && m < 15 { m = m < 8 ? 0 : 15 }
-                            if m != minutes { snap.impactOccurred() }
+                            if m != minutes { haptic.snap() }
                             withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                                 minutes = m
                                 turning = false
@@ -140,4 +139,19 @@ struct TwistDial: View {
             }
         }
     }
+}
+
+/// Dial clicks: haptics on the phone, the trackpad on the Mac.
+private struct Tick {
+    #if os(iOS)
+    private let selection = UISelectionFeedbackGenerator()
+    private let rigid = UIImpactFeedbackGenerator(style: .rigid)
+    func prepare() { selection.prepare() }
+    func selectionChanged() { selection.selectionChanged() }
+    func snap() { rigid.impactOccurred() }
+    #else
+    func prepare() {}
+    func selectionChanged() { NSHapticFeedbackManager.defaultPerformer.perform(.alignment, performanceTime: .now) }
+    func snap() { NSHapticFeedbackManager.defaultPerformer.perform(.levelChange, performanceTime: .now) }
+    #endif
 }

@@ -3,6 +3,7 @@ options:
   bundleIdPrefix: com.sketchpiece
   deploymentTarget:
     iOS: "18.0"
+    macOS: "15.0"
   createIntermediateGroups: true
 
 settings:
@@ -150,3 +151,30 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist.tunnel
+
+  TwistMac:
+    type: application
+    platform: macOS
+    sources:
+      - Mac
+      - Shared
+      - App/Theme.swift
+      - App/Views/DialView.swift
+      - path: App/Resources/Fonts/InterTight.ttf
+        buildPhase: resources
+    info:
+      path: Mac/Info.plist
+      properties:
+        CFBundleDisplayName: Twist
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ATSApplicationFontsPath: .
+        LSApplicationCategoryType: public.app-category.productivity
+        NSHumanReadableCopyright: ""
+    settings:
+      base:
+        PRODUCT_NAME: Twist
+        PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist.mac
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_IDENTITY: "Apple Development"

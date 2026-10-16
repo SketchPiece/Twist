@@ -8,9 +8,13 @@ A minimal iOS focus app. Twist an egg-timer dial to set a duration, and the whol
 - During a session: all apps shielded except an allowlist chosen once at setup (Phone, Maps), blackhole VPN on, app removal denied, branded shield with time left and an "I need access" button. The session ends on its own via DeviceActivity even if the app is killed.
 - Emergency unlock: hold to unwind the dial.
 - Onboarding: Screen Time access, VPN permission, allowlist.
-- Out of scope for now: profiles, schedules, NFC/QR, stats, widgets, per-site blocking, macOS.
+- Out of scope for now: profiles, schedules, NFC/QR, stats, widgets, per-site blocking.
 
 Stack: SwiftUI, iOS 18. Targets: app, ShieldConfiguration, ShieldAction, DeviceActivityMonitor, PacketTunnel. Foqos (github.com/awaseem/foqos, MIT) is a useful reference for the Screen Time parts.
+
+## Mac
+
+`TwistMac` (sources in `Mac/`, sharing `Shared/`, `App/Theme.swift` and the dial) locks the whole Mac instead of shielding apps: the same dial sets the time, then every screen is covered by the countdown. Kiosk presentation options hide the Dock and menu bar and turn off ⌘Tab, Force Quit and log out/restart; the lock windows sit above everything on every Space and take focus back if another app grabs it; ⌘Q is refused while a session runs. The app registers itself as a login item for the session, so a forced restart comes back to the lock. Emergency exit: "I need access", then hold the mouse button or Space for 45 s. Debug builds accept `-twistTestSeconds 20` for a short trial lock.
 
 ## Brand
 
