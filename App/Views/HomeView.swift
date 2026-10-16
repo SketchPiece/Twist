@@ -4,6 +4,7 @@ struct HomeView: View {
     @Environment(AppModel.self) private var model
     @State private var minutes = 0
     @State private var showAllowlist = false
+    @State private var showDevices = false
     @State private var starting = false
 
     private var ready: Bool { minutes >= 15 }
@@ -13,6 +14,11 @@ struct HomeView: View {
             ZStack {
                 Wordmark()
                 HStack {
+                    Button { showDevices = true } label: {
+                        DevicesButtonLabel(count: model.hub.members.count)
+                            .foregroundStyle(Color.graphite.opacity(0.45))
+                    }
+                    .accessibilityLabel("Devices")
                     Spacer()
                     Button { showAllowlist = true } label: {
                         Image(systemName: "slider.horizontal.3")
@@ -38,7 +44,7 @@ struct HomeView: View {
                     .monospacedDigit()
                     .contentTransition(.numericText(value: Double(minutes)))
                     .animation(.snappy(duration: 0.2), value: minutes)
-                Text(ready ? "until \(TimeText.time(Date().addingTimeInterval(TimeInterval(minutes * 60))))" : "Twist to set")
+                Text(ready ? caption : "Twist to set")
                     .font(.tight(17))
                     .opacity(0.55)
             }
@@ -63,9 +69,18 @@ struct HomeView: View {
         .padding(.bottom, 12)
         .foregroundStyle(Color.graphite)
         .background(Color.paper.ignoresSafeArea())
+        .sheet(isPresented: $showDevices) {
+            DevicesSheet()
+        }
         .sheet(isPresented: $showAllowlist) {
             AllowlistSheet()
                 .presentationDetents([.medium, .large])
         }
+    }
+
+    /// "until 15:40", or "iPhone, MacBook Pro and iPad · until 15:40" in a ring.
+    private var caption: String {
+        let until = "until \(TimeText.time(Date().addingTimeInterval(TimeInterval(minutes * 60))))"
+        return model.hub.inRing ? "\(model.hub.names(model.hub.members)) · \(until)" : until
     }
 }

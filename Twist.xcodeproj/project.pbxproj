@@ -34,6 +34,7 @@
 		6E7D850CB1D5E89489B4FA59 /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B584B8B085E49FFE08F762F /* Doc.swift */; };
 		71324C18CD6015B3AE4B4F26 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D6BF4A944B39DD15FF54C /* Cloud.swift */; };
 		72C49D2BD4A92BFE14192D08 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */; };
+		81445C121E3D8B82CF2E79F2 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1823D70CB130799FA3B88A /* DevicesView.swift */; };
 		8B3B9A102F31627AF75372A7 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85E26D666AE15D17DA92BD /* LockedView.swift */; };
 		8ED12107AD782D2F0538D173 /* DevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461306698D16F28912A3A88F /* DevicesView.swift */; };
 		9633E63A80216E13F6374886 /* MonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */; };
@@ -124,6 +125,7 @@
 		0AE34D6D46F8A066A723A2AA /* Twist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Twist.entitlements; sourceTree = "<group>"; };
 		13ACCAC2EFA6869FBEC1706C /* InterTight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterTight.ttf; sourceTree = "<group>"; };
 		1E7FE2F21F3CC446DEB3BBE0 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		1F1823D70CB130799FA3B88A /* DevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesView.swift; sourceTree = "<group>"; };
 		1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		29ED8EC0013934DA0D0C506D /* TwistTunnel.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TwistTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A58C77809DC8A48642A605B /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
@@ -370,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				896552245027E08A4EA85911 /* AllowlistView.swift */,
+				1F1823D70CB130799FA3B88A /* DevicesView.swift */,
 				9383DBCB76980B22E097C4AA /* DialView.swift */,
 				D8D8F8B74DB2739EEC936328 /* HomeView.swift */,
 				5E85E26D666AE15D17DA92BD /* LockedView.swift */,
@@ -632,6 +635,7 @@
 				CF3F980B195197604637404D /* AllowlistView.swift in Sources */,
 				A28FF9BC031995774F79D6B7 /* AppModel.swift in Sources */,
 				3C6CEF6467BB72F1FC272DFA /* Cloud.swift in Sources */,
+				81445C121E3D8B82CF2E79F2 /* DevicesView.swift in Sources */,
 				F7C7948970843FC1AA93DE06 /* DialView.swift in Sources */,
 				4483C990476BB1BB5918073A /* Doc.swift in Sources */,
 				22BD0337D3C2B68F7EE0136A /* HomeView.swift in Sources */,

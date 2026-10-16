@@ -39,6 +39,15 @@ enum VPN {
         try m.connection.startVPNTunnel()
     }
 
+    /// Start it again if a lock is on but the tunnel is not.
+    static func ensureRunning() async {
+        guard let m = try? await manager() else { return }
+        switch m.connection.status {
+        case .connected, .connecting, .reasserting: return
+        default: try? await start()
+        }
+    }
+
     static func stop() async {
         guard let m = try? await manager() else { return }
         if m.isOnDemandEnabled {

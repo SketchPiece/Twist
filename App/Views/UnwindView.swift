@@ -83,7 +83,9 @@ struct UnwindView: View {
             .minimumScaleFactor(0.6)
             .padding(.top, 10)
             (Text("left to hold. ").fontWeight(.semibold)
-                + Text("Keep your thumb down until the screen is full. Let go and you stay locked.").foregroundStyle(Color.paper.opacity(0.7)))
+                + Text(model.hub.inRing
+                    ? "When the screen is full, \(model.hub.names(model.hub.members)) open. Let go and you stay locked."
+                    : "Keep your thumb down until the screen is full. Let go and you stay locked.").foregroundStyle(Color.paper.opacity(0.7)))
                 .font(.tight(20))
                 .lineSpacing(3)
                 .frame(maxWidth: 300, alignment: .leading)
@@ -152,7 +154,7 @@ struct UnwindView: View {
             holding = false
             holdStart = nil
             UINotificationFeedbackGenerator().notificationOccurred(.success)
-            model.end()
+            model.unwind()
         }
     }
 

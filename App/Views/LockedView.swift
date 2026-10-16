@@ -33,11 +33,16 @@ struct LockedView: View {
                 }
                 .frame(minHeight: 120)
 
+                if model.hub.inRing {
+                    AlsoLocked()
+                        .padding(.top, 14)
+                }
+
                 Button("I need access") { model.openUnwind() }
                     .font(.tight(16))
                     .foregroundStyle(Color.paper.opacity(0.45))
                     .frame(height: 58)
-                    .padding(.top, 18)
+                    .padding(.top, model.hub.inRing ? 6 : 18)
             }
             .onChange(of: remaining <= 0) { _, over in
                 if over { model.end() }
@@ -47,5 +52,30 @@ struct LockedView: View {
         .padding(.bottom, 12)
         .foregroundStyle(Color.paper)
         .background(Color.night.ignoresSafeArea())
+    }
+}
+
+/// The other devices in this lock: "● MacBook Pro | ● iPad".
+private struct AlsoLocked: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        HStack(spacing: 7) {
+            if let by = model.lockedBy {
+                Image(systemName: by.symbol).font(.system(size: 13))
+                Text("Locked from \(by.name)")
+            } else {
+                ForEach(Array(model.hub.others.enumerated()), id: \.element.id) { i, d in
+                    if i > 0 { Rectangle().frame(width: 1, height: 12).opacity(0.15).padding(.horizontal, 3) }
+                    StatusDot(kind: .lock)
+                    Text(d.name)
+                }
+            }
+        }
+        .font(.tight(14))
+        .lineLimit(1)
+        .padding(.horizontal, 14)
+        .frame(height: 34)
+        .background(Color.paper.opacity(0.08), in: Capsule())
     }
 }
