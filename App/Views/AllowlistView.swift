@@ -76,47 +76,9 @@ struct AllowlistSheet: View {
                 .padding(.top, 8)
                 .padding(.bottom, 12)
             AllowlistContent()
-            FocusRow()
-                .padding(.bottom, 16)
         }
         .padding(.horizontal, 28)
         .foregroundStyle(Color.graphite)
         .presentationBackground(Color.paper)
-    }
-}
-
-/// Switching the Twist Focus (a Home Screen page with only what stays open) with the lock.
-private struct FocusRow: View {
-    @Environment(AppModel.self) private var model
-
-    var body: some View {
-        @Bindable var model = model
-        VStack(alignment: .leading, spacing: 10) {
-            Toggle(isOn: $model.usesFocus) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Twist Focus")
-                        .font(.tight(19, .medium))
-                    Text("Runs the Twist On and Twist Off shortcuts")
-                        .font(.tight(15))
-                        .opacity(0.5)
-                }
-            }
-            .tint(.signal)
-            if model.usesFocus {
-                // Signed shortcut files; the share sheet hands them to Shortcuts to add.
-                HStack(spacing: 20) {
-                    ForEach(["Twist On", "Twist Off"], id: \.self) { name in
-                        if let url = Bundle.main.url(forResource: name, withExtension: "shortcut") {
-                            ShareLink(item: url) {
-                                Text("Add \(name)")
-                                    .font(.tight(17, .semibold))
-                                    .foregroundStyle(Color.signal)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .padding(.top, 16)
     }
 }

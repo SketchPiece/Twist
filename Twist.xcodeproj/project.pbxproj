@@ -43,11 +43,9 @@
 		9DA86F485B9F539B02AE694B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87343FF36A6CEC11762FA435 /* Session.swift */; };
 		A28FF9BC031995774F79D6B7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F3B12FE9D1A1B5815D904 /* AppModel.swift */; };
 		A3CC6417C3422FFDCA16703F /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */; };
-		A4E56240013D2FF9315C931C /* Twist On.shortcut in Resources */ = {isa = PBXBuildFile; fileRef = 89B7E54150187F0593F53658 /* Twist On.shortcut */; };
 		A6D50DE882F6FC67F41DE266 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
 		A6E0C6E763FD3439196621C5 /* VPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73974A810C0A1A1A883F325A /* VPN.swift */; };
 		A87C7EBA87DCEE1A60D7DA81 /* TwistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3758A8B3608AD67CDE228 /* TwistApp.swift */; };
-		B2B5981CA0965F25DA5BC5CB /* Twist Off.shortcut in Resources */ = {isa = PBXBuildFile; fileRef = 53A7E7DB3435DD41F7416476 /* Twist Off.shortcut */; };
 		B33958A248954FD4FF1DEAC2 /* MacModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9701247F1C25B3F00D5A85E /* MacModel.swift */; };
 		B5BDCD269D4DB9CF4F0AFB1B /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B235A50150233D789DBE9 /* ManagedSettings.framework */; };
 		B708AB283DC9DD06CD27EFBE /* RingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CF01E193053D0F3EC78372 /* RingViews.swift */; };
@@ -137,7 +135,6 @@
 		4913D1E8A2839FD17C448A7B /* ShieldConfig.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfig.entitlements; sourceTree = "<group>"; };
 		50DB4E17FBC650C65E13AFF0 /* MonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorExtension.swift; sourceTree = "<group>"; };
 		524A9723BEEB92BB3CD53CBA /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		53A7E7DB3435DD41F7416476 /* Twist Off.shortcut */ = {isa = PBXFileReference; path = "Twist Off.shortcut"; sourceTree = "<group>"; };
 		56383ED9C47A4316AF59C7AC /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		5B54FAF151ABA37AB7B86818 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		5C2ACBF998175AF720BCDD9B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -151,7 +148,6 @@
 		80A085F60B0023DF53784F5B /* Hub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
 		87343FF36A6CEC11762FA435 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		896552245027E08A4EA85911 /* AllowlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowlistView.swift; sourceTree = "<group>"; };
-		89B7E54150187F0593F53658 /* Twist On.shortcut */ = {isa = PBXFileReference; path = "Twist On.shortcut"; sourceTree = "<group>"; };
 		8A5D6BF4A944B39DD15FF54C /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		8EC25B7958C9A3F9322B19DE /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
 		8F0EDC31B4BC1D30E25081DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,8 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				020AD566F76E921185725706 /* Assets.xcassets */,
-				53A7E7DB3435DD41F7416476 /* Twist Off.shortcut */,
-				89B7E54150187F0593F53658 /* Twist On.shortcut */,
 				3FF89DF7C53383C4A03BC288 /* Fonts */,
 			);
 			path = Resources;
@@ -602,8 +596,6 @@
 			files = (
 				FEB3E3ECA1A23561E22569B4 /* Assets.xcassets in Resources */,
 				6CD2B4126934E6C3E7E632FC /* InterTight.ttf in Resources */,
-				B2B5981CA0965F25DA5BC5CB /* Twist Off.shortcut in Resources */,
-				A4E56240013D2FF9315C931C /* Twist On.shortcut in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,10 +55,6 @@ targets:
         NSLocalNetworkUsageDescription: Twist finds your Mac and iPad nearby so they lock together with this iPhone.
         NSBonjourServices: [_twist._tcp]
         UIBackgroundModes: [remote-notification]
-        # The Focus shortcuts come back to Twist through twist://.
-        CFBundleURLTypes:
-          - CFBundleURLName: com.sketchpiece.twist
-            CFBundleURLSchemes: [twist]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist

@@ -25,10 +25,6 @@ final class AppModel {
     var allowlist: FamilyActivitySelection = AppModel.loadAllowlist() {
         didSet { saveAllowlist() }
     }
-    /// Turn the Twist Focus on and off through the "Twist On" / "Twist Off" shortcuts.
-    var usesFocus: Bool = Shared.defaults.bool(forKey: "usesFocus") {
-        didSet { Shared.defaults.set(usesFocus, forKey: "usesFocus") }
-    }
     var lastError: String?
 
     let hub = Hub.shared
@@ -62,9 +58,7 @@ final class AppModel {
             }
         }
         let now = Date()
-        let s = Session(start: now, end: now.addingTimeInterval(TimeInterval(minutes * 60)))
-        await lock(s, by: nil)
-        focus(on: s)
+        await lock(Session(start: now, end: now.addingTimeInterval(TimeInterval(minutes * 60))), by: nil)
     }
 
     /// Shields, the end-of-session monitor and the VPN. `by` is the device that locked,
@@ -131,7 +125,6 @@ final class AppModel {
     func unwind() {
         let ring = hub.inRing
         end()
-        focus(on: nil)
         if ring { opened = Opened(by: nil) }
         Task {
             await VPN.stop()
@@ -141,25 +134,6 @@ final class AppModel {
 
     func closeOpened() {
         withAnimation(.smooth(duration: 0.4)) { opened = nil }
-    }
-
-    // MARK: - Focus
-
-    /// Apps can't switch a Focus, Shortcuts can. "Twist On" gets the minutes left and turns
-    /// the Focus on until then, so it ends by itself even if Twist is closed. Both come
-    /// back to Twist when they're done.
-    private func focus(on s: Session?) {
-        guard usesFocus else { return }
-        var c = URLComponents(string: "shortcuts://x-callback-url/run-shortcut")!
-        c.queryItems = [URLQueryItem(name: "name", value: s == nil ? "Twist Off" : "Twist On")]
-        if let s {
-            c.queryItems! += [
-                URLQueryItem(name: "input", value: "text"),
-                URLQueryItem(name: "text", value: String(Int((s.remaining / 60).rounded(.up)))),
-            ]
-        }
-        c.queryItems!.append(URLQueryItem(name: "x-success", value: "twist://"))
-        if let url = c.url { UIApplication.shared.open(url) }
     }
 
     // MARK: - The ring
@@ -178,9 +152,6 @@ final class AppModel {
             }
         } else if let mine, doc.session == nil, doc.sessionChanged > mine.start {
             end()
-            // Shortcuts can only be run from the foreground; otherwise the Focus
-            // stays on until the time it was set for.
-            if UIApplication.shared.applicationState == .active { focus(on: nil) }
             withAnimation(.smooth(duration: 0.4)) { opened = Opened(by: doc.member(doc.sessionBy)) }
         }
     }
