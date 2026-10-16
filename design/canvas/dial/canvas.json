@@ -1,0 +1,174 @@
+{
+ "v": 3,
+ "title": "Twist · The dial: calmer, more minimal",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "01-now.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Now · Braun timer · set to 1:30"
+  },
+  "02-now.html": {
+   "x": 0,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "Now · Braun timer · idle"
+  },
+  "a1-flat.html": {
+   "x": 630,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A. Flat Braun · set to 1:30"
+  },
+  "a2-flat.html": {
+   "x": 630,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "A. Flat Braun · idle"
+  },
+  "b1-ring.html": {
+   "x": 1100,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "B. Ring + handle · set to 1:30"
+  },
+  "b2-ring.html": {
+   "x": 1100,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "B. Ring + handle · idle"
+  },
+  "c1-slice.html": {
+   "x": 1570,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "C. Just the slice · set to 1:30"
+  },
+  "c2-slice.html": {
+   "x": 1570,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "C. Just the slice · idle"
+  },
+  "d1-knob.html": {
+   "x": 2040,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "D. The knob is the dial · set to 1:30"
+  },
+  "d2-knob.html": {
+   "x": 2040,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "D. The knob is the dial · idle"
+  },
+  "e1-ticks.html": {
+   "x": 2510,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "E. Tick bezel · set to 1:30"
+  },
+  "e2-ticks.html": {
+   "x": 2510,
+   "y": 964,
+   "w": 390,
+   "h": 844,
+   "title": "E. Tick bezel · idle"
+  }
+ },
+ "order": [
+  "01-now.html",
+  "a1-flat.html",
+  "b1-ring.html",
+  "c1-slice.html",
+  "d1-knob.html",
+  "e1-ticks.html",
+  "02-now.html",
+  "a2-flat.html",
+  "b2-ring.html",
+  "c2-slice.html",
+  "d2-knob.html",
+  "e2-ticks.html"
+ ],
+ "notes": {
+  "t": {
+   "x": 0,
+   "y": -260,
+   "text": "Twist · The dial: calmer, more minimal",
+   "kind": "title1",
+   "maxW": 3000
+  },
+  "n0": {
+   "x": 0,
+   "y": -120,
+   "text": "Now",
+   "kind": "title2",
+   "maxW": 390
+  },
+  "n1": {
+   "x": 630,
+   "y": -120,
+   "text": "Variants · top row 1:30, bottom row idle",
+   "kind": "title2",
+   "maxW": 2300
+  }
+ },
+ "annotations": [
+  {
+   "id": "claude-1",
+   "x": 630,
+   "y": 1968,
+   "w": 390,
+   "color": "blue",
+   "text": "A · Same Braun object, just quieter: no numerals, no shadows or gradients, 4 hour marks + 15-min dots, small flat knob. Smallest change."
+  },
+  {
+   "id": "claude-2",
+   "x": 1100,
+   "y": 1968,
+   "w": 390,
+   "color": "blue",
+   "text": "B · No face. A track ring fills with orange; you drag the white handle at its end. Most “iOS”, least like a kitchen timer."
+  },
+  {
+   "id": "claude-3",
+   "x": 1570,
+   "y": 1968,
+   "w": 390,
+   "color": "blue",
+   "text": "C · Only the orange slice and a hairline circle. The black dot on the rim is what you grab. Keeps the wedge (the brand mark) and drops everything else."
+  },
+  {
+   "id": "claude-4",
+   "x": 2040,
+   "y": 1968,
+   "w": 390,
+   "color": "blue",
+   "text": "D · The dial is one big graphite knob with an orange notch; the time lights up the dots around it. The most tactile: you clearly turn a thing."
+  },
+  {
+   "id": "claude-5",
+   "x": 2510,
+   "y": 1968,
+   "w": 390,
+   "color": "blue",
+   "text": "E · A bezel of ticks; the ones covered by time light up orange. No disc, no knob, no wedge. Quietest, closest to a watch."
+  }
+ ],
+ "designSystems": []
+}

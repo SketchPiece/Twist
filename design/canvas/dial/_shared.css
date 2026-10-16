@@ -1,0 +1,17 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; -webkit-font-smoothing: antialiased; }
+body { font-family: "Inter Tight", -apple-system, system-ui, sans-serif; }
+.phone { position: relative; width: 390px; height: 844px; overflow: hidden; }
+.status { position: absolute; top: 0; left: 0; right: 0; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 6px 30px 0 44px; font: 600 17px -apple-system, system-ui, sans-serif; z-index: 2; }
+.status-icons { display: flex; gap: 6px; align-items: center; }
+.home { position: absolute; bottom: 8px; left: 50%; width: 134px; height: 5px; margin-left: -67px; border-radius: 3px; opacity: .85; }
+.col { position: absolute; inset: 54px 0 34px; display: flex; flex-direction: column; align-items: center; padding: 8px 28px 12px; }
+.top { position: relative; width: 100%; height: 44px; display: flex; align-items: center; justify-content: center; }
+.opts { position: absolute; right: 4px; top: 12px; }
+.wm { font-weight: 700; font-size: 28px; letter-spacing: -.045em; line-height: 1; color: #1B1B1A; display: flex; align-items: baseline; }
+.wm-dot { display: inline-block; width: 5.6px; height: 5.6px; border-radius: 50%; background: conic-gradient(#FF5A1F 0 33%, transparent 0); box-shadow: inset 0 0 0 .84px #1B1B1A; margin-left: 1.68px; }
+.obj { flex: 1; display: flex; align-items: center; justify-content: center; }
+.readout { display: flex; flex-direction: column; align-items: center; gap: 12px; min-height: 120px; }
+.big { font-weight: 600; font-size: 72px; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.sub { font-weight: 500; font-size: 17px; opacity: .55; }
+.cta { margin-top: 18px; width: 100%; height: 58px; border-radius: 29px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 18px; }
