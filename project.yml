@@ -20,7 +20,7 @@ targets:
   Twist:
     type: application
     platform: iOS
-    sources: [App, Shared]
+    sources: [App, Shared, Ring]
     dependencies:
       - target: TwistMonitor
       - target: TwistShieldConfig
@@ -36,6 +36,9 @@ targets:
         com.apple.developer.family-controls: true
         com.apple.security.application-groups: [group.com.sketchpiece.twist]
         com.apple.developer.networking.networkextension: [packet-tunnel-provider]
+        com.apple.developer.icloud-container-identifiers: [iCloud.com.sketchpiece.twist]
+        com.apple.developer.icloud-services: [CloudKit]
+        aps-environment: development
     info:
       path: App/Info.plist
       properties:
@@ -49,6 +52,9 @@ targets:
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
         ITSAppUsesNonExemptEncryption: false
+        NSLocalNetworkUsageDescription: Twist finds your Mac and iPad nearby so they lock together with this iPhone.
+        NSBonjourServices: [_twist._tcp]
+        UIBackgroundModes: [remote-notification]
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sketchpiece.twist
@@ -131,14 +137,18 @@ targets:
   TwistTunnel:
     type: app-extension
     platform: iOS
-    sources: [Tunnel, Shared]
+    sources: [Tunnel, Shared, Ring/Doc.swift, Ring/Cloud.swift]
     dependencies:
       - sdk: NetworkExtension.framework
+      - sdk: ManagedSettings.framework
     entitlements:
       path: Tunnel/Tunnel.entitlements
       properties:
         com.apple.security.application-groups: [group.com.sketchpiece.twist]
         com.apple.developer.networking.networkextension: [packet-tunnel-provider]
+        com.apple.developer.family-controls: true
+        com.apple.developer.icloud-container-identifiers: [iCloud.com.sketchpiece.twist]
+        com.apple.developer.icloud-services: [CloudKit]
     info:
       path: Tunnel/Info.plist
       properties:
@@ -158,6 +168,7 @@ targets:
     sources:
       - Mac
       - Shared
+      - Ring
       - App/Theme.swift
       - App/Views/DialView.swift
       - path: App/Resources/Fonts/InterTight.ttf
@@ -171,6 +182,14 @@ targets:
         ATSApplicationFontsPath: .
         LSApplicationCategoryType: public.app-category.productivity
         NSHumanReadableCopyright: ""
+        NSLocalNetworkUsageDescription: Twist finds your iPhone and iPad nearby so they lock together with this Mac.
+        NSBonjourServices: [_twist._tcp]
+    entitlements:
+      path: Mac/TwistMac.entitlements
+      properties:
+        com.apple.developer.icloud-container-identifiers: [iCloud.com.sketchpiece.twist]
+        com.apple.developer.icloud-services: [CloudKit]
+        com.apple.developer.aps-environment: development
     settings:
       base:
         PRODUCT_NAME: Twist

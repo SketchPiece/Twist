@@ -24,7 +24,13 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_twist._tcp</string>
+	</array>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Twist finds your iPhone and iPad nearby so they lock together with this Mac.</string>
 </dict>
 </plist>
