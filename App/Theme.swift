@@ -16,6 +16,18 @@ extension Font {
     }
 }
 
+extension AttributedString {
+    /// Pulls the characters together without tracking the last one: trailing tracking
+    /// shrinks the last glyph's box, and the right edge of it gets clipped.
+    static func tight(_ string: String, by tracking: CGFloat) -> AttributedString {
+        var text = AttributedString(string)
+        if let last = text.characters.indices.last {
+            text[text.startIndex..<last].tracking = tracking
+        }
+        return text
+    }
+}
+
 /// "twist" plus the little dial dot.
 struct Wordmark: View {
     var size: CGFloat = 28

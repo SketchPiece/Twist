@@ -130,4 +130,6 @@ final class Lockdown {
 private final class ShieldWindow: NSWindow {
     override var canBecomeKey: Bool { true }
     override var canBecomeMain: Bool { true }
+    // Keys nothing on the lock uses end up here; swallow them instead of beeping.
+    override func keyDown(with event: NSEvent) {}
 }

@@ -45,9 +45,8 @@ struct LockedView: View {
                     Spacer(minLength: 24)
 
                     VStack(spacing: 12) {
-                        Text(TimeText.clock(remaining))
+                        Text(AttributedString.tight(TimeText.clock(remaining), by: -3.6))
                             .font(.tight(96, .semibold))
-                            .tracking(-3.6)
                             .monospacedDigit()
                         if let end = model.session?.end {
                             Text("opens at \(TimeText.time(end))")

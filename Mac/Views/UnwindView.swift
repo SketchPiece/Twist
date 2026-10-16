@@ -61,7 +61,8 @@ struct UnwindView: View {
         .focusEffectDisabled()
         .focused($focused)
         .onAppear { focused = true }
-        .onKeyPress(.space, phases: [.down, .up]) { press in
+        // Repeats are taken too: left unhandled, each one makes the system beep.
+        .onKeyPress(.space, phases: .all) { press in
             if press.phase == .down, !holding { begin() }
             if press.phase == .up { release() }
             return .handled
@@ -81,9 +82,8 @@ struct UnwindView: View {
                 .font(.tight(20))
                 .opacity(0.5)
             HStack(alignment: .lastTextBaseline, spacing: 12) {
-                Text("\(seconds)")
+                Text(AttributedString.tight("\(seconds)", by: -13))
                     .font(.tight(220, .bold))
-                    .tracking(-13)
                     .monospacedDigit()
                     .contentTransition(.numericText(countsDown: true))
                 Text("s")
