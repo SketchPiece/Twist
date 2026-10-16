@@ -12,7 +12,10 @@ final class Lockdown {
     private var windows: [NSWindow] = []
     private var observers: [(NotificationCenter, NSObjectProtocol)] = []
     private var timer: Timer?
+    private var keys: Any?
     private var engaged = false
+    /// The Mac's own lock screen is up: stand back so its password field can take the keyboard.
+    private var screenLocked = false
 
     private static let options: NSApplication.PresentationOptions = [
         .hideDock, .hideMenuBar,
@@ -39,12 +42,23 @@ final class Lockdown {
         observe(ws, NSWorkspace.didActivateApplicationNotification) { $0.grab() }
         observe(ws, NSWorkspace.activeSpaceDidChangeNotification) { $0.grab() }
         observe(ws, NSWorkspace.didWakeNotification) { $0.model.tick(); $0.grab() }
+        let screen = DistributedNotificationCenter.default()
+        observe(screen, .init("com.apple.screenIsLocked")) { $0.screenLocked = true; $0.stepBack() }
+        observe(screen, .init("com.apple.screenIsUnlocked")) { $0.screenLocked = false; $0.grab() }
+
+        // Kiosk mode turns off the system's ⌃⌘Q; locking the screen on top of Twist is still allowed.
+        keys = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+            let mods = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+            guard mods == [.control, .command], event.charactersIgnoringModifiers?.lowercased() == "q" else { return event }
+            Self.lockScreen()
+            return nil
+        }
 
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             MainActor.assumeIsolated {
                 guard let self else { return }
                 self.model.tick()
-                if self.engaged, !NSApp.isActive { self.grab() }
+                if self.engaged, !self.screenLocked, !NSApp.isActive { self.grab() }
             }
         }
 
@@ -58,6 +72,9 @@ final class Lockdown {
         timer = nil
         for (center, token) in observers { center.removeObserver(token) }
         observers = []
+        if let keys { NSEvent.removeMonitor(keys) }
+        keys = nil
+        screenLocked = false
         NSApp.presentationOptions = []
 
         // Fade the lock away. Each window shows a still of its last frame while it
@@ -88,11 +105,27 @@ final class Lockdown {
 
     /// Bring the lock back to the front and take keyboard focus.
     private func grab() {
-        guard engaged else { return }
+        guard engaged, !screenLocked else { return }
+        for w in windows { w.level = Self.level }
         NSApp.activate(ignoringOtherApps: true)
         if NSApp.presentationOptions != Self.options { NSApp.presentationOptions = Self.options }
         for w in windows { w.orderFrontRegardless() }
         windows.first?.makeKey()
+    }
+
+    private static let level = NSWindow.Level(rawValue: Int(CGShieldingWindowLevel()))
+
+    /// Under the Mac's lock screen while it is up.
+    private func stepBack() {
+        for w in windows { w.level = .normal }
+    }
+
+    /// The same as the system's ⌃⌘Q.
+    private static func lockScreen() {
+        guard let login = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY),
+              let sym = dlsym(login, "SACLockScreenImmediate") else { return }
+        typealias Lock = @convention(c) () -> Int32
+        _ = unsafeBitCast(sym, to: Lock.self)()
     }
 
     private func buildWindows() {
@@ -101,7 +134,7 @@ final class Lockdown {
         windows = NSScreen.screens.enumerated().map { i, screen in
             let primary = i == 0
             let w = ShieldWindow(contentRect: screen.frame, styleMask: .borderless, backing: .buffered, defer: false)
-            w.level = NSWindow.Level(rawValue: Int(CGShieldingWindowLevel()))
+            w.level = screenLocked ? .normal : Self.level
             w.collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary, .ignoresCycle]
             w.isReleasedWhenClosed = false
             w.backgroundColor = NSColor(Color.night)
