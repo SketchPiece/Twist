@@ -18,23 +18,19 @@ struct LockActivity: Widget {
         } dynamicIsland: { context in
             let s = context.state, over = context.isStale
             return DynamicIsland {
-                DynamicIslandExpandedRegion(.leading) {
-                    MiniDial(state: s, over: over)
-                        .frame(width: 58, height: 58)
-                        .padding(.leading, 4)
-                        .padding(.top, 4)
-                }
-                DynamicIslandExpandedRegion(.trailing) {
-                    Wordmark(size: 15, color: .paper)
-                        .opacity(0.45)
-                        .padding(.trailing, 6)
-                        .padding(.top, 6)
-                }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Countdown(state: s, over: over, size: 40)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, 6)
-                        .padding(.top, 2)
+                    HStack(alignment: .center, spacing: 16) {
+                        MiniDial(state: s, over: over)
+                            .frame(width: 64, height: 64)
+                        Countdown(state: s, over: over, size: 40)
+                        Spacer(minLength: 0)
+                    }
+                    .overlay(alignment: .topTrailing) {
+                        Wordmark(size: 14, color: .paper)
+                            .opacity(0.5)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 6)
                 }
             } compactLeading: {
                 MiniDial(state: s, over: over, bare: true)
@@ -65,7 +61,7 @@ private struct LockScreenView: View {
         }
         .overlay(alignment: .topTrailing) {
             Wordmark(size: 15, color: .paper)
-                .opacity(0.4)
+                .opacity(0.5)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 18)
@@ -179,7 +175,7 @@ private struct MiniDial: View {
                 }
 
                 Circle()
-                    .fill(bare ? Color.signal : Color.graphite)
+                    .fill(bare ? Color.signal : Color(white: 0.22))
                     .frame(width: side * (bare ? 0.26 : 0.34))
                     .overlay {
                         if !bare {

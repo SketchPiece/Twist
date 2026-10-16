@@ -118,10 +118,28 @@ final class Hub {
         doc = b.doc
         broadcast(b)
         let ring = b.id, doc = b.doc
-        let save = Task { try? await Cloud.save(ring: ring, doc: doc) }
-        let timeout = Task { try? await Task.sleep(for: .seconds(4)); save.cancel() }
-        _ = await save.value
-        timeout.cancel()
+        // Waits a few seconds at most, but the save keeps going (and retrying) after that:
+        // a slow iCloud must not lose an unwind.
+        let save = Task { await Self.save(ring: ring, doc: doc) }
+        await withTaskGroup(of: Void.self) { g in
+            g.addTask { await save.value }
+            g.addTask { try? await Task.sleep(for: .seconds(4)) }
+            await g.next()
+            g.cancelAll()
+        }
+    }
+
+    /// Saves to iCloud, trying again for a while if it fails. Merging makes repeats harmless.
+    private static func save(ring: UUID, doc: RingDoc) async {
+        for delay in [0, 5, 15, 30, 60, 120] {
+            try? await Task.sleep(for: .seconds(delay))
+            do {
+                try await Cloud.save(ring: ring, doc: doc)
+                return
+            } catch {
+                print("Cloud save failed: \(error)")
+            }
+        }
     }
 
     func remove(_ device: Device) {
@@ -136,7 +154,10 @@ final class Hub {
     }
 
     private func receive(_ remote: RingDoc) {
-        guard let before = Ring.bundle?.doc, let after = Ring.merge(remote), after != before else { return }
+        guard let before = Ring.bundle?.doc, let after = Ring.merge(remote) else { return }
+        // Also when the stored doc already had it (the tunnel merges into it too) but this
+        // process hasn't acted on it yet.
+        guard after != before || after != doc else { return }
         if !after.members.contains(where: { $0.id == me.id }) {
             // Removed on another device.
             Ring.bundle = nil
@@ -148,10 +169,12 @@ final class Hub {
         onDoc(after)
     }
 
-    private func broadcast(_ b: RingBundle, extra: Set<UUID> = []) {
+    /// Sends the doc to ring members nearby (or only to `to`, if given).
+    private func broadcast(_ b: RingBundle, extra: Set<UUID> = [], to: Set<UUID>? = nil) {
         guard let payload = try? JSONEncoder().encode(b.doc) else { return }
         let tag = RingCrypto.tag(payload, secret: b.secret)
-        let ids = Set(b.doc.members.map(\.id)).union(extra)
+        var ids = Set(b.doc.members.map(\.id)).union(extra)
+        if let to { ids.formIntersection(to) }
         for peer in nearby where ids.contains(peer.id) {
             let p = Pipe(to: peer.endpoint)
             p.start()
@@ -304,7 +327,12 @@ final class Hub {
     // MARK: -
 
     private func peersChanged(_ peers: [Peer]) {
+        let before = Set(nearby.map(\.id))
         nearby = peers
+        // A ring member just showed up (an iPhone opened Twist, a Mac woke): swap docs, so
+        // a lock or an unwind it missed while away reaches it now, both ways.
+        let arrived = Set(peers.map(\.id)).subtracting(before)
+        if !arrived.isEmpty, let b = Ring.bundle { broadcast(b, to: arrived) }
         let now = Date().timeIntervalSince1970
         for p in peers { seen[p.id.uuidString] = now }
         Shared.defaults.set(seen, forKey: "ring.seen")
