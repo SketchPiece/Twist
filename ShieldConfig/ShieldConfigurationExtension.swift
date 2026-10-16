@@ -11,19 +11,20 @@ final class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     override func configuration(shielding webDomain: WebDomain, in category: ActivityCategory) -> ShieldConfiguration { make() }
 
     private func make() -> ShieldConfiguration {
+        // Light scheme: on iOS 26 the shield can sit on the system's light glass
+        // instead of our background, so the text has to read on light either way.
         let paper = UIColor(red: 0xEF / 255, green: 0xED / 255, blue: 0xE7 / 255, alpha: 1)
         let graphite = UIColor(red: 0x1B / 255, green: 0x1B / 255, blue: 0x1A / 255, alpha: 1)
-        let orange = UIColor(red: 1, green: 0x5A / 255, blue: 0x1F / 255, alpha: 1)
         let subtitle = Session.current.map { "Opens in \(TimeText.spoken($0.remaining))" } ?? "Opens soon"
         return ShieldConfiguration(
             backgroundBlurStyle: nil,
-            backgroundColor: UIColor(red: 0x12 / 255, green: 0x12 / 255, blue: 0x11 / 255, alpha: 1),
+            backgroundColor: paper,
             icon: UIImage(named: "ShieldIcon"),
-            title: .init(text: "Locked by Twist", color: paper),
-            subtitle: .init(text: subtitle, color: paper.withAlphaComponent(0.6)),
-            primaryButtonLabel: .init(text: "OK", color: graphite),
-            primaryButtonBackgroundColor: orange,
-            secondaryButtonLabel: .init(text: "I need access", color: paper)
+            title: .init(text: "Locked by Twist", color: graphite),
+            subtitle: .init(text: subtitle, color: graphite.withAlphaComponent(0.6)),
+            primaryButtonLabel: .init(text: "OK", color: paper),
+            primaryButtonBackgroundColor: graphite,
+            secondaryButtonLabel: .init(text: "I need access", color: graphite.withAlphaComponent(0.7))
         )
     }
 }
