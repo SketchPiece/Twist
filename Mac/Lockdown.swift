@@ -58,9 +58,32 @@ final class Lockdown {
         timer = nil
         for (center, token) in observers { center.removeObserver(token) }
         observers = []
-        for w in windows { w.orderOut(nil) }
-        windows = []
         NSApp.presentationOptions = []
+
+        // Fade the lock away. Each window shows a still of its last frame while it
+        // fades, so the screens don't change under it as the model resets.
+        let fading = windows
+        windows = []
+        for w in fading { freeze(w); w.ignoresMouseEvents = true }
+        NSAnimationContext.runAnimationGroup { ctx in
+            ctx.duration = 0.6
+            ctx.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            for w in fading { w.animator().alphaValue = 0 }
+        } completionHandler: {
+            for w in fading { w.orderOut(nil) }
+        }
+    }
+
+    private func freeze(_ w: NSWindow) {
+        guard let view = w.contentView,
+              let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds) else { return }
+        view.cacheDisplay(in: view.bounds, to: rep)
+        let image = NSImage(size: view.bounds.size)
+        image.addRepresentation(rep)
+        let still = NSImageView(frame: view.bounds)
+        still.image = image
+        still.imageScaling = .scaleAxesIndependently
+        w.contentView = still
     }
 
     /// Bring the lock back to the front and take keyboard focus.

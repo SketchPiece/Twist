@@ -45,12 +45,13 @@ final class MacModel {
 
     /// The lock is over here: time ran out, or another device unwound it.
     func end() {
+        // Released first, so the fade starts from what the screens show now.
+        lockdown.release()
         Session.current = nil
         session = nil
         unwinding = false
         lockedBy = nil
         openedBy = nil
-        lockdown.release()
         syncLoginItem()
     }
 
