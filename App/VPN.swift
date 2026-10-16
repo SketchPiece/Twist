@@ -36,14 +36,26 @@ enum VPN {
         m.isOnDemandEnabled = true
         try await m.saveToPreferences()
         try await m.loadFromPreferences()
-        try m.connection.startVPNTunnel()
+        switch m.connection.status {
+        case .connected, .connecting, .reasserting:
+            // Already up (passing traffic since the last lock ran out): startVPNTunnel
+            // would do nothing, so tell it there is a session to block for.
+            refresh(m)
+        default:
+            try m.connection.startVPNTunnel()
+        }
     }
 
-    /// Start it again if a lock is on but the tunnel is not.
+    private static func refresh(_ m: NETunnelProviderManager) {
+        guard let session = m.connection as? NETunnelProviderSession else { return }
+        try? session.sendProviderMessage(Data("refresh".utf8)) { _ in }
+    }
+
+    /// Start it again if a lock is on but the tunnel is not; if it is, make sure it blocks.
     static func ensureRunning() async {
         guard let m = try? await manager() else { return }
         switch m.connection.status {
-        case .connected, .connecting, .reasserting: return
+        case .connected, .connecting, .reasserting: refresh(m)
         default: try? await start()
         }
     }

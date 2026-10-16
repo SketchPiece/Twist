@@ -14,16 +14,9 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
     private var watch: DispatchSourceTimer?
 
     override func startTunnel(options: [String: NSObject]?, completionHandler: @escaping (Error?) -> Void) {
-        let session = Session.current
-        let blocking = session.map { !$0.isOver } ?? false
-        setTunnelNetworkSettings(settings(blocking: blocking)) { [weak self] error in
+        apply { [weak self] error in
             completionHandler(error)
-            guard error == nil, let self else { return }
-            if blocking, let session {
-                self.scheduleEnd(at: session.end)
-                self.watchRing()
-            }
-            self.drain()
+            if error == nil { self?.drain() }
         }
     }
 
@@ -33,10 +26,26 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
         completionHandler()
     }
 
-    /// The app sends "refresh" after a session ends early.
+    /// The app sends "refresh" when a session starts or ends while the tunnel is already up.
     override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)?) {
-        let blocking = Session.current.map { !$0.isOver } ?? false
-        setTunnelNetworkSettings(settings(blocking: blocking)) { _ in completionHandler?(nil) }
+        apply { _ in completionHandler?(nil) }
+    }
+
+    /// Block or pass through for the current session, and watch the ring while blocking.
+    private func apply(_ done: @escaping (Error?) -> Void) {
+        let session = Session.current
+        let blocking = session.map { !$0.isOver } ?? false
+        setTunnelNetworkSettings(settings(blocking: blocking)) { [weak self] error in
+            done(error)
+            guard error == nil, let self else { return }
+            if blocking, let session {
+                self.scheduleEnd(at: session.end)
+                self.watchRing()
+            } else {
+                self.timer?.cancel()
+                self.watch?.cancel()
+            }
+        }
     }
 
     private func scheduleEnd(at end: Date) {
@@ -53,6 +62,7 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
 
     /// Every 15 s, ask iCloud whether another device unwound or moved the lock.
     private func watchRing() {
+        watch?.cancel()
         guard let ring = Ring.bundle?.id else { return }
         let t = DispatchSource.makeTimerSource(queue: .main)
         t.schedule(deadline: .now() + 5, repeating: 15)
@@ -94,6 +104,10 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
         packetFlow.readPackets { [weak self] _, _ in self?.drain() }
     }
 
+    private static let apple4 = [("17.0.0.0", "255.0.0.0")]
+    private static let apple6 = [("2620:149::", 32), ("2403:300::", 32), ("2a01:b740::", 32)]
+    private static let resolvers4 = ["1.1.1.1", "8.8.8.8"]
+
     private func settings(blocking: Bool) -> NEPacketTunnelNetworkSettings {
         let s = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "127.0.0.1")
         let v4 = NEIPv4Settings(addresses: ["10.255.0.1"], subnetMasks: ["255.255.255.255"])
@@ -101,7 +115,14 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
         if blocking {
             v4.includedRoutes = [NEIPv4Route.default()]
             v6.includedRoutes = [NEIPv6Route.default()]
-            let dns = NEDNSSettings(servers: ["10.255.0.2"])
+            // Apple's own network stays reachable: iCloud and its pushes are how this
+            // iPhone hears that another device unwound, and they run in system daemons
+            // that the blackhole would otherwise catch. Names resolve through a public
+            // resolver outside the tunnel; everything else still goes nowhere.
+            v4.excludedRoutes = Self.apple4.map { NEIPv4Route(destinationAddress: $0.0, subnetMask: $0.1) }
+                + Self.resolvers4.map { NEIPv4Route(destinationAddress: $0, subnetMask: "255.255.255.255") }
+            v6.excludedRoutes = Self.apple6.map { NEIPv6Route(destinationAddress: $0.0, networkPrefixLength: NSNumber(value: $0.1)) }
+            let dns = NEDNSSettings(servers: Self.resolvers4)
             dns.matchDomains = [""]
             s.dnsSettings = dns
         } else {
