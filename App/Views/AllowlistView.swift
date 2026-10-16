@@ -76,9 +76,31 @@ struct AllowlistSheet: View {
                 .padding(.top, 8)
                 .padding(.bottom, 12)
             AllowlistContent()
+            FocusRow()
+                .padding(.bottom, 16)
         }
         .padding(.horizontal, 28)
         .foregroundStyle(Color.graphite)
         .presentationBackground(Color.paper)
+    }
+}
+
+/// Switching the Twist Focus (a Home Screen page with only what stays open) with the lock.
+private struct FocusRow: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        @Bindable var model = model
+        Toggle(isOn: $model.usesFocus) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Twist Focus")
+                    .font(.tight(19, .medium))
+                Text("Runs the Twist On and Twist Off shortcuts")
+                    .font(.tight(15))
+                    .opacity(0.5)
+            }
+        }
+        .tint(.signal)
+        .padding(.top, 16)
     }
 }
