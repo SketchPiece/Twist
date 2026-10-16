@@ -79,7 +79,7 @@
    "y": 880,
    "w": 390,
    "color": "blue",
-   "text": "A · The whole screen is the button. Hold anywhere and orange rises from the bottom; full screen = unlocked. Huge countdown top-left. Let go and it drains back down."
+   "text": "A · The whole screen is the button. Hold anywhere and orange rises from the bottom; full screen = unlocked. Big number = seconds left to HOLD (45 s total), small line above = when the session ends by itself. Let go and it drains back down."
   },
   {
    "id": "claude-2",
