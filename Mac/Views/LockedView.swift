@@ -1,18 +1,21 @@
 import SwiftUI
 
-/// What each screen shows while the Mac is locked. Only the primary screen can unwind.
+/// What each screen shows while the Mac is locked. The primary screen has the timer
+/// and the unwind; the others just stay quiet behind a lock.
 struct LockRoot: View {
     @Environment(MacModel.self) private var model
     var primary: Bool
 
     var body: some View {
         ZStack {
-            if let by = model.openedBy {
+            if !primary {
+                QuietLock()
+            } else if let by = model.openedBy {
                 OpenedFlash(by: by).transition(.opacity)
-            } else if primary && model.unwinding {
+            } else if model.unwinding {
                 UnwindView().transition(.opacity)
             } else {
-                LockedView(primary: primary).transition(.opacity)
+                LockedView().transition(.opacity)
             }
         }
         .animation(.smooth(duration: 0.45), value: model.unwinding)
@@ -25,7 +28,6 @@ struct LockRoot: View {
 
 struct LockedView: View {
     @Environment(MacModel.self) private var model
-    var primary: Bool
 
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1)) { ctx in
@@ -70,13 +72,21 @@ struct LockedView: View {
                         .frame(height: 58)
                         .padding(.top, 28)
                         .padding(.bottom, 36)
-                        .opacity(primary ? 1 : 0)
-                        .allowsHitTesting(primary)
                 }
                 .frame(maxWidth: .infinity)
             }
         }
         .foregroundStyle(Color.paper)
+    }
+}
+
+/// The other screens: no timer to repeat, just a lock.
+private struct QuietLock: View {
+    var body: some View {
+        Image(systemName: "lock.fill")
+            .font(.system(size: 40, weight: .medium))
+            .foregroundStyle(Color.paper.opacity(0.18))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
