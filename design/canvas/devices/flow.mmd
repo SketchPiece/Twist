@@ -1,0 +1,23 @@
+---
+title: How a lock travels
+board: 1400x1000
+---
+sequenceDiagram
+  autonumber
+  participant P as iPhone
+  participant M as MacBook Pro
+  participant C as iCloud (CloudKit)
+  participant I as iPad (offline)
+  Note over P,M: Pairing, once, same Wi-Fi
+  P->>M: Bonjour finds "_twist._tcp"
+  P-->>M: key exchange, both show 4719
+  M->>P: Join: device added
+  Note over P,I: Lock
+  P->>M: lock until 15:40 (Wi-Fi, instant)
+  P->>C: write session, then VPN goes on
+  C-->>M: push (already locked, ignored)
+  C-->>I: push when back online
+  Note over P,I: Unwind on any device
+  M->>P: open (Wi-Fi, instant)
+  M->>C: session ended
+  C-->>I: opens when online, or at 15:40 anyway

@@ -1,0 +1,270 @@
+{
+ "v": 3,
+ "title": "Twist · Linked devices: pair, lock together, unwind together",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "1a-now-home.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Now · Home"
+  },
+  "1b-home-strip.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A. Home: the devices under the wordmark"
+  },
+  "1c-home-button.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "B. Home: a devices button, top left"
+  },
+  "1d-devices.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Devices sheet"
+  },
+  "1e-remove.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Swipe to remove a device"
+  },
+  "2a-pair-find.html": {
+   "x": 0,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "1 · iPhone: looking nearby"
+  },
+  "2b-pair-code.html": {
+   "x": 470,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "2 · iPhone: same code on both"
+  },
+  "2c-pair-mac.html": {
+   "x": 940,
+   "y": 1262,
+   "w": 1280,
+   "h": 800,
+   "title": "2 · Mac: the code to confirm"
+  },
+  "2d-pair-done.html": {
+   "x": 2300,
+   "y": 1240,
+   "w": 390,
+   "h": 844,
+   "title": "3 · iPhone: joined"
+  },
+  "3a-mac-menubar.html": {
+   "x": 0,
+   "y": 2502,
+   "w": 1280,
+   "h": 800,
+   "title": "Mac: menu bar, always running"
+  },
+  "3b-mac-home.html": {
+   "x": 1360,
+   "y": 2502,
+   "w": 1280,
+   "h": 800,
+   "title": "Mac: Home with the devices"
+  },
+  "3c-mac-devices.html": {
+   "x": 2720,
+   "y": 2502,
+   "w": 1280,
+   "h": 800,
+   "title": "Mac: Devices window"
+  },
+  "4a-phone-locked.html": {
+   "x": 0,
+   "y": 3520,
+   "w": 390,
+   "h": 844,
+   "title": "iPhone locked: who else is"
+  },
+  "4b-mac-locked.html": {
+   "x": 470,
+   "y": 3542,
+   "w": 1280,
+   "h": 800,
+   "title": "Mac locked from the iPhone"
+  },
+  "4c-phone-notification.html": {
+   "x": 1830,
+   "y": 3520,
+   "w": 390,
+   "h": 844,
+   "title": "iPhone asleep: a nudge from the Mac"
+  },
+  "5a-phone-unwind.html": {
+   "x": 0,
+   "y": 4560,
+   "w": 390,
+   "h": 844,
+   "title": "Unwind on iPhone: opens everything"
+  },
+  "5b-mac-opened.html": {
+   "x": 470,
+   "y": 4582,
+   "w": 1280,
+   "h": 800,
+   "title": "Mac: opened from the iPhone"
+  },
+  "5c-phone-opened.html": {
+   "x": 1830,
+   "y": 4560,
+   "w": 390,
+   "h": 844,
+   "title": "iPhone: opened, one device still catching up"
+  },
+  "flow.mmd": {
+   "x": 2560,
+   "y": -40,
+   "w": 1400,
+   "h": 1000,
+   "title": "How a lock travels"
+  }
+ },
+ "order": [
+  "1a-now-home.html",
+  "1b-home-strip.html",
+  "1c-home-button.html",
+  "1d-devices.html",
+  "1e-remove.html",
+  "2a-pair-find.html",
+  "2b-pair-code.html",
+  "2c-pair-mac.html",
+  "2d-pair-done.html",
+  "3a-mac-menubar.html",
+  "3b-mac-home.html",
+  "3c-mac-devices.html",
+  "4a-phone-locked.html",
+  "4b-mac-locked.html",
+  "4c-phone-notification.html",
+  "5a-phone-unwind.html",
+  "5b-mac-opened.html",
+  "5c-phone-opened.html",
+  "flow.mmd"
+ ],
+ "notes": {
+  "t": {
+   "x": 0,
+   "y": -360,
+   "text": "Twist · Linked devices: pair, lock together, unwind together",
+   "kind": "title1",
+   "maxW": 4000
+  },
+  "r0": {
+   "x": 0,
+   "y": -110,
+   "text": "1 · Where your devices show up",
+   "kind": "title2",
+   "maxW": 3000
+  },
+  "r1": {
+   "x": 0,
+   "y": 1130,
+   "text": "2 · Pairing: the iPhone finds the Mac, both show the same code",
+   "kind": "title2",
+   "maxW": 3000
+  },
+  "r2": {
+   "x": 0,
+   "y": 2370,
+   "text": "3 · Mac: always running in the menu bar",
+   "kind": "title2",
+   "maxW": 3000
+  },
+  "r3": {
+   "x": 0,
+   "y": 3410,
+   "text": "4 · Lock on one, all lock",
+   "kind": "title2",
+   "maxW": 3000
+  },
+  "r4": {
+   "x": 0,
+   "y": 4450,
+   "text": "5 · Unwind on one, all open",
+   "kind": "title2",
+   "maxW": 3000
+  },
+  "rd": {
+   "x": 2560,
+   "y": -150,
+   "text": "How it travels",
+   "kind": "title2",
+   "maxW": 1400
+  }
+ },
+ "annotations": [
+  {
+   "id": "claude-1",
+   "x": 1300,
+   "y": -250,
+   "w": 420,
+   "color": "blue",
+   "text": "A and B differ only in how Home shows the devices. I'd go with A: before you lock you can see who will lock with you and who is offline. B is cleaner but hides it behind an icon.",
+   "to": {
+    "board": "1b-home-strip.html",
+    "x": 195,
+    "y": 136
+   }
+  },
+  {
+   "id": "claude-2",
+   "x": 3600,
+   "y": 3420,
+   "w": 400,
+   "color": "blue",
+   "text": "Fallback for when the iPhone is asleep and iOS won't let Twist lock in the background. Normally the push locks it silently; if that fails, this nudge appears.",
+   "to": {
+    "board": "4c-phone-notification.html",
+    "x": 195,
+    "y": 370
+   }
+  },
+  {
+   "id": "claude-3",
+   "x": 2940,
+   "y": 4460,
+   "w": 400,
+   "color": "blue",
+   "text": "During a lock the iPhone's internet is cut by the VPN. To still hear 'open' from the Mac, the tunnel has to let local Wi-Fi through (and the tunnel itself checks iCloud).",
+   "to": {
+    "board": "5c-phone-opened.html",
+    "x": 195,
+    "y": 420
+   }
+  },
+  {
+   "id": "claude-4",
+   "x": 2390,
+   "y": -250,
+   "w": 340,
+   "color": "blue",
+   "text": "The list replaces nothing: it's a sheet from the strip (A) or the button (B).",
+   "to": {
+    "board": "1d-devices.html",
+    "x": 195,
+    "y": 110
+   }
+  }
+ ],
+ "designSystems": []
+}
