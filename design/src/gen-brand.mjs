@@ -684,7 +684,7 @@ ${holdButton({ ring: C.brass, track: "rgba(236,230,218,.12)", fill: C.steel, fg:
 
 for (const [file, html] of Object.entries({ ...aBoards, ...bBoards, ...cBoards })) writeFileSync(join(OUT, file), html);
 
-// Exported icons (square, unrounded) for the Helm project icon and later the Xcode asset catalog.
+// Exported icons (square, unrounded) for the project sidebar icon and later the Xcode asset catalog.
 const iconSvg = (inner) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">${inner}</svg>`;
 const strip = (s) => s.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "").replace(/<defs>.*?<\/defs>/s, "").replace(/<g clip-path="[^"]*">/, "<g>");
 mkdirSync(join(OUT, "_icons"), { recursive: true });
