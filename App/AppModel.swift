@@ -22,8 +22,8 @@ final class AppModel {
         didSet { Shared.defaults.set(onboarded, forKey: "onboarded") }
     }
     /// Apps that stay open during a session.
-    var allowlist: FamilyActivitySelection = AppModel.loadAllowlist() {
-        didSet { saveAllowlist() }
+    var allowlist: FamilyActivitySelection = Allowlist.selection {
+        didSet { Allowlist.selection = allowlist }
     }
     var lastError: String?
 
@@ -71,8 +71,7 @@ final class AppModel {
         lockedBy = device
         opened = nil
 
-        store.shield.applicationCategories = .all(except: allowlist.applicationTokens)
-        store.shield.webDomainCategories = .all(except: allowlist.webDomainTokens)
+        Allowlist.shield(store)
         store.application.denyAppRemoval = true
 
         let cal = Calendar.current
@@ -221,26 +220,5 @@ final class AppModel {
 
     func closeUnwind() {
         withAnimation(.smooth(duration: 0.4)) { unwinding = false }
-    }
-
-    // MARK: - Allowlist
-
-    /// Picking a whole category in the picker should keep every app in it open.
-    /// Shields can only exempt apps, so the selection expands categories into app tokens.
-    private static func loadAllowlist() -> FamilyActivitySelection {
-        var sel = FamilyActivitySelection(includeEntireCategory: true)
-        if let data = Shared.defaults.data(forKey: "allowlist"),
-           let saved = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
-            sel.applicationTokens = saved.applicationTokens
-            sel.categoryTokens = saved.categoryTokens
-            sel.webDomainTokens = saved.webDomainTokens
-        }
-        return sel
-    }
-
-    private func saveAllowlist() {
-        if let data = try? JSONEncoder().encode(allowlist) {
-            Shared.defaults.set(data, forKey: "allowlist")
-        }
     }
 }

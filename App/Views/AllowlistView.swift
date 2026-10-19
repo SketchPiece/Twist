@@ -20,12 +20,9 @@ struct AllowlistContent: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .frame(height: 64)
                     }
-                    // iOS only lets a shield exempt single apps, and on this phone the picker
-                    // hands back a picked category without its apps, so a category alone keeps
-                    // nothing open. Say so instead of promising "All apps".
                     ForEach(categories, id: \.self) { token in
                         Label(token)
-                            .labelStyle(AppRowStyle(note: "Still locks", warn: true))
+                            .labelStyle(AppRowStyle(note: "All apps"))
                     }
                     ForEach(apps, id: \.self) { token in
                         Label(token)
@@ -36,7 +33,7 @@ struct AllowlistContent: View {
             .scrollBounceBehavior(.basedOnSize)
 
             if !model.allowlist.categoryTokens.isEmpty {
-                Text("Whole categories can't stay open. Tap Change, open a category and tick the apps inside it.")
+                Text("An app from a picked category may flash Twist's screen the first time. After that it just opens.")
                     .font(.tight(15))
                     .opacity(0.6)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -57,7 +54,6 @@ struct AllowlistContent: View {
 
 private struct AppRowStyle: LabelStyle {
     var note: String?
-    var warn = false
 
     func makeBody(configuration: Configuration) -> some View {
         HStack(spacing: 14) {
@@ -67,9 +63,7 @@ private struct AppRowStyle: LabelStyle {
             configuration.title.font(.tight(19, .medium)).lineLimit(1)
             Spacer()
             if let note {
-                Text(note).font(.tight(16))
-                    .foregroundStyle(warn ? Color.signal : Color.graphite)
-                    .opacity(warn ? 1 : 0.4)
+                Text(note).font(.tight(16)).opacity(0.4)
             }
         }
         .frame(height: 60)

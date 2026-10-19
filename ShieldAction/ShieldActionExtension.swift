@@ -5,6 +5,12 @@ import UserNotifications
 /// can't open Twist directly, so it posts a notification that does.
 final class ShieldActionExtension: ShieldActionDelegate {
     override func handle(action: ShieldAction, for application: ApplicationToken, completionHandler: @escaping (ShieldActionResponse) -> Void) {
+        // The shield learned this app from an allowed category: lift it and let the app through.
+        if action == .primaryButtonPressed, Allowlist.openApps.contains(application) {
+            Allowlist.shield(ManagedSettingsStore(named: .init(Shared.storeName)))
+            completionHandler(.defer)
+            return
+        }
         respond(action, completionHandler)
     }
 
