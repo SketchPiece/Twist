@@ -1,0 +1,71 @@
+{
+ "v": 3,
+ "title": "Twist · a clock that runs out, for the Live Activity",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "0-now.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Now · moving dial"
+  },
+  "f-pie.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "F. Shrinking wedge"
+  },
+  "g-rim.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "G. Wedge in a rim"
+  },
+  "h-marks.html": {
+   "x": 0,
+   "y": 1004,
+   "w": 390,
+   "h": 844,
+   "title": "H. Wedge with minute marks"
+  },
+  "i-soft.html": {
+   "x": 470,
+   "y": 1004,
+   "w": 390,
+   "h": 844,
+   "title": "I. Soft wedge and a hand"
+  },
+  "j-mono.html": {
+   "x": 940,
+   "y": 1004,
+   "w": 390,
+   "h": 844,
+   "title": "J. Paper wedge"
+  }
+ },
+ "order": [
+  "0-now.html",
+  "f-pie.html",
+  "g-rim.html",
+  "h-marks.html",
+  "i-soft.html",
+  "j-mono.html"
+ ],
+ "notes": {
+  "t": {
+   "x": 0,
+   "y": -240,
+   "text": "Twist · a clock that runs out",
+   "kind": "title1",
+   "maxW": 1330
+  }
+ },
+ "annotations": [],
+ "designSystems": []
+}
