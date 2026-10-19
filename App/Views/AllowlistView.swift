@@ -20,9 +20,12 @@ struct AllowlistContent: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .frame(height: 64)
                     }
+                    // iOS only lets a shield exempt single apps, and on this phone the picker
+                    // hands back a picked category without its apps, so a category alone keeps
+                    // nothing open. Say so instead of promising "All apps".
                     ForEach(categories, id: \.self) { token in
                         Label(token)
-                            .labelStyle(AppRowStyle(note: "All apps"))
+                            .labelStyle(AppRowStyle(note: "Still locks", warn: true))
                     }
                     ForEach(apps, id: \.self) { token in
                         Label(token)
@@ -31,6 +34,14 @@ struct AllowlistContent: View {
                 }
             }
             .scrollBounceBehavior(.basedOnSize)
+
+            if !model.allowlist.categoryTokens.isEmpty {
+                Text("Whole categories can't stay open. Tap Change, open a category and tick the apps inside it.")
+                    .font(.tight(15))
+                    .opacity(0.6)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 14)
+            }
 
             Button { picking = true } label: {
                 Text(model.allowlist.applicationTokens.isEmpty && model.allowlist.categoryTokens.isEmpty ? "Choose apps" : "Change")
@@ -46,6 +57,7 @@ struct AllowlistContent: View {
 
 private struct AppRowStyle: LabelStyle {
     var note: String?
+    var warn = false
 
     func makeBody(configuration: Configuration) -> some View {
         HStack(spacing: 14) {
@@ -55,7 +67,9 @@ private struct AppRowStyle: LabelStyle {
             configuration.title.font(.tight(19, .medium)).lineLimit(1)
             Spacer()
             if let note {
-                Text(note).font(.tight(16)).opacity(0.4)
+                Text(note).font(.tight(16))
+                    .foregroundStyle(warn ? Color.signal : Color.graphite)
+                    .opacity(warn ? 1 : 0.4)
             }
         }
         .frame(height: 60)
