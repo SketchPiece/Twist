@@ -132,8 +132,8 @@ private struct CompactTime: View {
 
 // MARK: - The dial
 
-/// The kitchen timer, small: night face, hour marks, an orange arc for the time left
-/// out of 4 hours, and the graphite knob. `bare` drops the face and marks for the island.
+/// A clock that runs out: twelve marks around the edge and an orange slice for the time
+/// left out of 4 hours, shrinking back to 12 o'clock. `bare` drops the marks for the island.
 private struct MiniDial: View {
     var state: LockAttributes.ContentState
     var over: Bool
@@ -142,50 +142,60 @@ private struct MiniDial: View {
     var body: some View {
         GeometryReader { geo in
             let side = min(geo.size.width, geo.size.height)
+            let inset = bare ? 0 : side * 0.1
             ZStack {
                 if !bare {
-                    Circle().fill(Color.nightFace)
                     Canvas { ctx, size in
                         let c = CGPoint(x: size.width / 2, y: size.height / 2)
                         let r = side / 2
-                        for h in 0..<4 {
-                            let a = Double(h) * .pi / 2
+                        for h in 0..<12 {
+                            let a = Double(h) * .pi / 6
+                            let inner = r - side * (h % 3 == 0 ? 0.09 : 0.05)
                             var p = Path()
-                            p.move(to: CGPoint(x: c.x + r * 0.94 * sin(a), y: c.y - r * 0.94 * cos(a)))
-                            p.addLine(to: CGPoint(x: c.x + r * 0.84 * sin(a), y: c.y - r * 0.84 * cos(a)))
+                            p.move(to: CGPoint(x: c.x + (r - 0.5) * sin(a), y: c.y - (r - 0.5) * cos(a)))
+                            p.addLine(to: CGPoint(x: c.x + inner * sin(a), y: c.y - inner * cos(a)))
                             ctx.stroke(p, with: .color(Color.paper.opacity(0.5)),
-                                       style: StrokeStyle(lineWidth: max(1.5, side * 0.025), lineCap: .round))
+                                       style: StrokeStyle(lineWidth: max(1, side * 0.025)))
                         }
                     }
-                }
-
-                if over {
-                    Circle()
-                        .strokeBorder(Color.paper.opacity(0.18), lineWidth: bare ? 2.5 : side * 0.06)
-                        .padding(bare ? 0 : side * 0.2)
-                } else {
-                    ProgressView(timerInterval: state.dialRange, countsDown: true) {
-                        EmptyView()
-                    } currentValueLabel: {
-                        EmptyView()
-                    }
-                    .progressViewStyle(.circular)
-                    .tint(Color.signal)
-                    .padding(bare ? 0 : side * 0.17)
                 }
 
                 Circle()
-                    .fill(bare ? Color.signal : Color(white: 0.22))
-                    .frame(width: side * (bare ? 0.26 : 0.34))
-                    .overlay {
-                        if !bare {
-                            Circle().fill(Color.signal).frame(width: side * 0.07)
-                        }
-                    }
+                    .fill(Color.paper.opacity(bare ? 0.18 : 0.06))
+                    .padding(inset)
+
+                if !over {
+                    TimerWedge(range: state.dialRange, side: side - inset * 2)
+                        .padding(inset)
+                }
             }
             .frame(width: side, height: side)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .aspectRatio(1, contentMode: .fit)
+    }
+}
+
+/// A Live Activity can only animate the system's timer ring, so the slice is that ring
+/// nested inside itself until the rings overlap into a solid wedge.
+private struct TimerWedge: View {
+    var range: ClosedRange<Date>
+    var side: CGFloat
+
+    var body: some View {
+        let step: CGFloat = 2.5
+        let rings = max(2, Int(side / 2 / step))
+        ZStack {
+            ForEach(0..<rings, id: \.self) { i in
+                ProgressView(timerInterval: range, countsDown: true) {
+                    EmptyView()
+                } currentValueLabel: {
+                    EmptyView()
+                }
+                .progressViewStyle(.circular)
+                .tint(Color.signal)
+                .padding(CGFloat(i) * step)
+            }
+        }
     }
 }
