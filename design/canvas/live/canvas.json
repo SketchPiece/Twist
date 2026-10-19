@@ -1,0 +1,63 @@
+{
+ "v": 3,
+ "title": "Twist · Live Activity without the moving dial",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "0-now.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Now · moving dial"
+  },
+  "a-time.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "A. Just the time"
+  },
+  "b-line.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "B. A line, not a ring"
+  },
+  "c-knob.html": {
+   "x": 0,
+   "y": 1004,
+   "w": 390,
+   "h": 844,
+   "title": "C. The knob, standing still"
+  },
+  "d-opens.html": {
+   "x": 470,
+   "y": 1004,
+   "w": 390,
+   "h": 844,
+   "title": "D. When it opens, first"
+  }
+ },
+ "order": [
+  "0-now.html",
+  "a-time.html",
+  "b-line.html",
+  "c-knob.html",
+  "d-opens.html"
+ ],
+ "notes": {
+  "t": {
+   "x": 0,
+   "y": -240,
+   "text": "Twist · Live Activity without the moving dial",
+   "kind": "title1",
+   "maxW": 1330
+  }
+ },
+ "annotations": [],
+ "designSystems": []
+}
