@@ -2,7 +2,7 @@
 
 **Twist. Then live.**
 
-Twist is a focus timer that works like a kitchen timer. You turn a dial to set how long, press Lock, and your iPhone locks down until the time is up. Every app except a short allowlist is shielded and the internet is cut off. A Mac version locks the whole Mac with the same dial, and linked devices lock and unwind together.
+Twist is a focus timer that works like a kitchen timer. You turn a dial to set how long, press Lock, and your iPhone or iPad locks down until the time is up. Every app except a short allowlist is shielded and the internet is cut off. A Mac version locks the whole Mac with the same dial, and linked devices lock and unwind together.
 
 There are no profiles, schedules, streaks or stats. You set a time, the phone locks, and you get on with your day.
 
@@ -29,7 +29,7 @@ It also has to actually hold. Shields that close with one tap and a "focus mode"
 - **Live Activity.** The countdown sits on the Lock Screen and in the Dynamic Island.
 - **Unwind.** If you really need out, tap "I need access" and hold for 45 seconds while the screen fills with orange. Let go and you stay locked.
 - **Twist for Mac.** A full-screen kiosk lock. The countdown shows on the main display and every other display gets a plain lock. To unwind early, hold the mouse button or Space for 45 seconds.
-- **Linked devices.** Pair your iPhone with a Mac (and other devices running Twist). Lock one and they all lock. Unwind one and they all open.
+- **Linked devices.** Pair your iPhone, iPad and Mac. Lock one and they all lock. Unwind one and they all open.
 
 ## Across devices
 
@@ -42,7 +42,7 @@ Devices that lock together form a "ring" (`Ring/`):
 - After pairing, every message between members is signed with HMAC-SHA256.
 - The ring's state is one small document: the members, and the current lock (when it ends and which device started it). Each half is last-writer-wins on its own timestamp, so copies can merge in any order.
 - Nearby devices get changes straight over the local network. Devices that aren't nearby get them through a CloudKit private database zone with a push subscription. The Mac also polls iCloud every minute in case a push doesn't arrive.
-- When a lock arrives from another device, the iPhone applies the shields and starts the VPN. If the app is in the background, a silent push wakes it, and the packet tunnel extension also watches iCloud.
+- When a lock arrives from another device, the iPhone or iPad applies the shields and starts the VPN. If the app is in the background, a silent push wakes it, and the packet tunnel extension also watches iCloud.
 - In a ring the Mac starts at login and stays in the menu bar, so other devices can lock it at any time.
 
 <br clear="right">
@@ -74,7 +74,7 @@ Every screen started as an HTML board in [`design/canvas/`](design/canvas): the 
 ## Requirements
 
 - Xcode 16 or later
-- iOS 18 or later on a real iPhone. Screen Time APIs and packet tunnels don't work in the Simulator. The iOS target is built for iPhone only for now.
+- iOS or iPadOS 18 or later on a real iPhone or iPad. Screen Time APIs and packet tunnels don't work in the Simulator.
 - macOS 15 or later for Twist for Mac
 - A paid Apple Developer account, which the Family Controls and Network Extension (packet tunnel) entitlements need. Shipping outside development builds also requires Apple's Family Controls distribution approval.
 
@@ -88,7 +88,7 @@ The Xcode project is generated from [`project.yml`](project.yml) with [XcodeGen]
    brew install xcodegen
    xcodegen generate
    ```
-3. Open `Twist.xcodeproj`, choose the `Twist` scheme and your iPhone, then run. On first launch, onboarding asks for Screen Time access, the VPN configuration, and your allowlist.
+3. Open `Twist.xcodeproj`, choose the `Twist` scheme and your iPhone or iPad, then run. On first launch, onboarding asks for Screen Time access, the VPN configuration, and your allowlist.
 4. For the Mac, run the `TwistMac` scheme.
 
 Debug builds have two launch arguments for trying things out:
